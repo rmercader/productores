@@ -3,8 +3,8 @@
 include_once(DIR_BASE.'class/table.class.php');
 include_once(DIR_BASE.'seguridad/usuario.class.php');
 include_once(DIR_BASE.'novedades/categoria_novedad.class.php');
-include_once(DIR_BASE.'fckeditor/fckeditor.php');
 include_once(DIR_BASE.'class/image_handler.class.php');
+include_once(DIR_BASE.'fckeditor/fckeditor.php');
 
 class Novedad extends Table {
 
@@ -84,8 +84,25 @@ class Novedad extends Table {
 		$Form->assign('ID_NOVEDAD', $id);
 		$Form->assign('ID_CATEGORIA_NOVEDAD', $this->Registro['id_categoria_novedad']);
 		$Form->assign('TITULO', $this->Registro['titulo']);
+		
 		$Form->assign('CABEZAL', $this->Registro['cabezal']);
-		$Form->assign('TEXTO', $this->Registro['texto']);
+
+		$editorCab = new FCKeditor('cabezal');
+		$editorCab->BasePath = 'fckeditor/';
+		$editorCab->Height = ALTURA_EDITOR;
+		$editorCab->Config['EnterMode'] = 'br';
+		$editorCab->Value = $this->Registro['cabezal'];
+		$contenidoCab = $editorCab->CreateHtml();
+		$Form->assign('cabezal', $contenidoCab);
+		
+		$editorTxt = new FCKeditor('texto');
+		$editorTxt->BasePath = 'fckeditor/';
+		$editorTxt->Height = ALTURA_EDITOR;
+		$editorTxt->Config['EnterMode'] = 'br';
+		$editorTxt->Value = $this->Registro['texto'];
+		$contenidoTxt = $editorTxt->CreateHtml();
+		$Form->assign('texto', $contenidoTxt);
+		
 		$Form->assign('VISIBLE', $this->Registro['visible'] == 1 ? 'checked="checked"' : '');
 		$Form->assign('PORTADA', $this->Registro['portada'] == 1 ? 'checked="checked"' : '');
 		$Form->assign('NEWSLETTER', $this->Registro['newsletter'] == 1 ? 'checked="checked"' : '');
@@ -167,8 +184,8 @@ class Novedad extends Table {
 		}
 		$this->Registro['id_categoria_novedad'] = $_POST['ID_CATEGORIA_NOVEDAD'];
 		$this->Registro['titulo'] = $_POST['TITULO'];
-		$this->Registro['cabezal'] = stripslashes($_POST['CABEZAL']);
-		$this->Registro['texto'] = stripslashes($_POST['TEXTO']);
+		$this->Registro['cabezal'] = stripslashes($_POST['cabezal']);
+		$this->Registro['texto'] = stripslashes($_POST['texto']);
 		$this->Registro['visible'] = $_POST['VISIBLE'] ? 1 : 0;
 		$this->Registro['portada'] = $_POST['PORTADA'] ? 1 : 0;
 		$this->Registro['newsletter'] = $_POST['NEWSLETTER'] ? 1 : 0;
