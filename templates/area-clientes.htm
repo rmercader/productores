@@ -1,0 +1,64 @@
+<br />
+<table>
+	{include file="header-area-clientes.htm"}
+        
+    {if $mostrar_documentos == 'S'}
+    <tr><td height="20px"></td></tr>
+    <tr>
+    	<td align="left">
+        	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+            	<tr>
+                	<td colspan="2" align="center" style="background-color: #312780; color: #FFF; font-weight: bold; border: 1px solid #666; border-right: none">Documentos de interés</td>
+                </tr>
+                {section name=lncat loop=$CATS}
+                <tr>
+                	<td class="boton-subcategoria-producto" style="border-bottom: #FFF 1px solid;">
+                    	<a href="documentos-clientes.php?id_categoria_documento={$CATS[lncat].id_categoria_documento}">{$CATS[lncat].nom_cat}</a>
+                    </td>
+                </tr>
+                {/section}
+            </table>
+        </td>
+	</tr>
+    {/if}
+    
+    {if $mostrar_eventos_generales == 'S'}
+    <tr><td height="20px"></td></tr>
+    <tr>
+    	<td align="left">
+        	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+            	<tr>
+                	<td align="center" style="background-color: #312780; color: #FFF; font-weight: bold; border: 1px solid #666">Eventos para todos los clientes</td>
+                </tr>
+                {section name=lnevtgen loop=$EVTGEN}
+                <tr>
+                	<td align="left" valign="middle" height="30px" style="background-color: #F1FDEF; color: #000; font-weight: bold; border: 1px solid #666">
+                    	<a href="javascript: navegarEvento('{$EVTGEN[lnevtgen].url}');" style="color: #000">{$EVTGEN[lnevtgen].nombre_evento} el día {$EVTGEN[lnevtgen].fecha_disp}</a>
+                    </td>
+                </tr>
+                {/section}
+            </table>
+        </td>
+	</tr>
+    {/if}
+    
+    {if $mostrar_eventos_sucursal == 'S'}
+    <tr><td height="20px"></td></tr>
+    <tr>
+    	<td align="left">
+        	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+            	<tr>
+                	<td align="center" style="background-color: #312780; color: #FFF; font-weight: bold; border: 1px solid #666">Eventos para la sucursal {$sucursal}</td>
+                </tr>
+                {section name=lnevtsuc loop=$EVTSUC}
+                <tr>
+                	<td align="left" valign="middle" height="30px" style="background-color: #F1FDEF; color: #000; font-weight: bold; border: 1px solid #666">
+                    	<a href="javascript: navegarEvento('{$EVTSUC[lnevtsuc].url}');" style="color: #000">{$EVTSUC[lnevtsuc].nombre_evento} el día {$EVTSUC[lnevtsuc].fecha_disp}</a>
+                    </td>
+                </tr>
+                {/section}
+            </table>
+        </td>
+	</tr>
+    {/if}
+</table>

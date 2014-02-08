@@ -1,0 +1,114 @@
+﻿{literal}
+<style>
+	#container { 
+		width: 840px;
+	}
+	.image { 
+		width:130px;
+		height:100px;
+		float: left;
+		position:relative; 
+		margin: 5px;
+		cursor: pointer;
+		padding-top: 30px;
+	}
+	a.delete { 
+		display:none;
+		position:absolute;
+		top: 130px;
+		left:102px;
+		width:32px;
+		height:32px;
+		text-indent:-999px;
+		background-image:url(templates/img/ico-eliminar-foto.png);
+	}
+	.image:hover a.delete { 
+		display:block; 
+	}	
+</style>
+<script>
+	var imgOrder = '';
+
+	$(function() {
+  		$("#container").sortable({
+			update: function(event, ui) {
+	  			imgOrder = $("#container").sortable('toArray').toString();
+			}
+		});
+		$("#container").disableSelection();
+	});		
+	
+	function prepararBorrados(){
+		$('a.delete').on('click', function(e){
+			e.preventDefault();
+			imageID = $(this).closest('.image')[0].id;
+			if(confirm("¿Está seguro de eliminar el video seleccionado?")){
+				document.getElementById("container").innerHTML = "<img src=\"templates/img/spinner.gif\" />";
+				xajax_eliminarVideo(document.getElementById("id_feria_evento").value, imageID);
+			}
+		});	
+	}
+
+	$(document).ready(function(){
+		prepararBorrados();
+		//prepararLinksVideos();
+		
+		$("#btGrabar").click(function(){
+			document.getElementById("orden").value = imgOrder;
+			document.getElementById("subevideo").value = "";
+			document.forms["frmVideos"].submit();
+		});
+		
+		$("#btGuardarVideo").click(function(){
+			var nom = document.getElementById("nombre").value;
+			var cod = document.getElementById("codigo").value;
+			var errores = "";
+			if(trim(nom) == ""){
+				errores += "Ingrese el nombre del video.\n";
+			}
+			if(trim(cod) == ""){
+				errores += "Ingrese el código del video.\n";
+			}
+			if(errores == ""){
+				document.getElementById("subevideo").value = "S";
+				document.forms["frmVideos"].submit();
+			}
+			else{
+				alert(errores);
+			}
+		});
+	});
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmVideos">	
+	{$NAVEGADOR}
+	<div class="celda-campo">
+		<div class="tit-campo">Nombre del video</div>
+		<input type="text" name="nombre" id="nombre" size="30" />
+	</div>
+	<div class="celda-campo">
+		<div class="tit-campo">Código</div>
+		<input type="text" name="codigo" id="codigo" size="20" />
+	</div>
+	<div class="celda-campo">
+		<div class="tit-campo">&nbsp;</div>
+		<div class="button" style="position: relative;" id="btGuardarVideo"><b>Guardar el video</b></div>
+	</div>
+	<div class="clear" style="height: 20px;"></div>
+	<div class="clear">
+		<div id="container">
+			{$VIDEOS}
+			<div class="clear"></div>
+		</div>
+	</div>
+    <input type="hidden" name="orden" id="orden" />
+    <input type="hidden" name="subevideo" id="subevideo" />
+	<input type="hidden" name="error" value="{$error}" id="error">
+	<input type="hidden" name="id_feria_evento" id="id_feria_evento" value="{$id_feria_evento}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.getElementById("error").value != "")
+		alert(document.getElementById("error").value);
+</script>
+{/literal}

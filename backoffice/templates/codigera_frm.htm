@@ -1,0 +1,35 @@
+<form action="{$SCRIPT_POST}" method="post" enctype="application/x-www-form-urlencoded" name="frmABM" onsubmit="validar('frmABM',NOMBRE,'Nombre',0,0);return false;">
+  {$NAVEGADOR}
+    <input name="ID" type="hidden" id="ID" value="{$ID}">
+    <br>
+  {if $ACC == 'B' || $ACC == 'C'}
+  <table width="70%" border="0" align="center" cellpadding="4" cellspacing="2">
+    <tr>
+      <th width="90" align="right">Id:</th>
+      <td align="left" class="nivel03">{$ID}&nbsp;</td>
+    </tr>
+    <tr>
+      <th align="right">Nombre:</th>
+      <td align="left" class="nivel03">{$NOMBRE}&nbsp;</td>
+    </tr>
+  </table>
+  {else}
+  <table width="70%" border="0" align="center" cellpadding="4" cellspacing="2">
+    {if $ACC != 'A'}
+      <tr>
+        <th width="90" align="right">Id:</th>
+        <td align="left" class="nivel03">{$ID}&nbsp; </td>
+      </tr>
+    {/if}
+    <tr>
+      <th width="90" align="right">Nombre:</th>
+      <td align="left" class="nivel03"><input name="NOMBRE" type="text" id="NOMBRE" value="{$NOMBRE}" size="50" maxlength="50"></td>
+    </tr>
+</table>
+{/if}
+{if $ERROR != ''}
+	{literal}
+	<script language="javascript">alert('{/literal}{$ERROR}{literal}')</script>
+	{/literal}
+{/if}
+</form>

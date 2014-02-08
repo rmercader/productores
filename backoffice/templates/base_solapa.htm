@@ -1,0 +1,17 @@
+<table width="100%" height="27" cellspacing="0" cellpadding="0" border="0">
+	<tr>
+	  {section name=linea loop=$REG}
+	  	{if $REG[linea].activa=='S'}
+			<td width="14" height="27"><img src="templates/img/slp_esq_izq_bj.gif" width="14" height="27"></td>
+			<td width="{$REG[linea].ancho}" height="27" background="templates/img/slp_fnd_bj.gif" align="center" style="padding-top:4px;"><a href="{$REG[linea].link}" class="leng" {if $REG[linea].destino <> ''} target="{$REG[linea].destino}"{/if}>{$REG[linea].nombre}</a></td>
+			<td width="16" height="27"><img src="templates/img/slp_esq_der_bj.gif" width="16" height="27"></td>
+		{else}
+			<td width="14" height="27"><img src="templates/img/slp_esq_izq.gif" width="14" height="27"></td>
+			<td width="{$REG[linea].ancho}" height="27" background="templates/img/slp_fnd.gif" align="center"><a href="{$REG[linea].link}" class="leng" {if $REG[linea].destino <> ''} target="{$REG[linea].destino}"{/if}>{$REG[linea].nombre}</a></td>
+			<td width="16" height="27"><img src="templates/img/slp_esq_der.gif" width="16" height="27"></td>
+		{/if}
+			<td width="3" height="27"><img src="templates/img/transp.gif" width="1" height="1"></td>
+	  {/section}
+	  	<td>&nbsp;</td>
+  	</tr>
+</table>

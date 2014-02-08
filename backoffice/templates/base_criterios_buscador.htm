@@ -1,0 +1,22 @@
+<table width="470" height="30" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="120" align="center">
+			<font class="nivel02">Ordenar por</font>
+			<br />
+			<select name="ORDEN_CAMPO" id="ORDEN_CAMPO" style="font-size: 1.5em; height: 32px">
+				{html_options values=$ORDEN_ID selected=$ORDEN_DFTO output=$ORDEN_NOM}
+			</select>
+		</td>
+        <td>&nbsp;&nbsp;&nbsp;</td>
+		<td width="105" align="center">
+			<font class="nivel02">Buscar por</font>
+			<br />
+			<input name="ORDEN_TXT" type="text" value="{$ORDEN_TXT}" size="20" class="campo-texto-w2">
+		</td>
+		<td width="30">
+			&nbsp;
+			<br />
+			<input name="btOK" type="image" id="btOK" src="templates/img/btn-buscar.png" border="0" title="Iniciar b&uacute;squeda" vspace="10" class="nada">
+		</td>
+	</tr>
+</table>

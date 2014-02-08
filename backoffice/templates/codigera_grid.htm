@@ -1,0 +1,14 @@
+<table width="98%" align="center" cellspacing="0">
+  <tr>
+    <td align="center" width="40" class="nivel01">Id.</td>
+    <td align="center" class="nivel01">Nombre</td>
+    <td align="center" width="50" class="nivel01">&nbsp;</td>
+  </tr>
+  {section name=linea loop=$REG}
+  <tr>
+    <td align="center" class="nivel02">{$REG[linea].id}</td>
+    <td align="left" class="nivel02">{$REG[linea].nombre}</td>
+    <td width="50" align="left" class="nivel02" nowrap="nowrap">{include file="base_accion.htm"}</td>
+  </tr>
+  {/section}
+</table>

@@ -1,0 +1,14 @@
+<table width="15" cellspacing="0" cellpadding="0" border="0">
+	  {section name=linea loop=$REG}
+	  	{if $REG[linea].activa=='S'}
+		<tr>
+			<td width="{$REG[linea].alto}" width="15" align="center" bgcolor="#b2c0af" class="nivel02"><a href="{$REG[linea].link}" class="leng" {if $REG[linea].destino <> ''} target="{$REG[linea].destino}"{/if}>{$REG[linea].nombre}</a></td>
+	  	</tr>
+		{else}
+		<tr>
+			<td width="{$REG[linea].alto}" width="15" align="center" class="nivel02"><a href="{$REG[linea].link}" class="leng" {if $REG[linea].destino <> ''} target="{$REG[linea].destino}"{/if}>{$REG[linea].nombre}</a></td>
+	  	</tr>
+		{/if}
+	  {/section}
+  	</tr>
+</table>

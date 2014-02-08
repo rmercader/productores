@@ -1,0 +1,20 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" class="nivel01">Id.</td>
+		<td align="center" class="nivel01">Nombre</td>
+        <td align="center" class="nivel01">C&oacute;digo</td>
+		<td align="center" class="nivel01">Categor&iacute;a</td>
+        <td align="center" class="nivel01">Preferencial/Com&uacute;n</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="left" class="nivel02">{$REG[linea].id}</td>
+		<td align="left" class="nivel02">{$REG[linea].nombre}</td>
+        <td align="left" class="nivel02">{$REG[linea].codigo}</td>
+        <td align="left" class="nivel02">{$REG[linea].nombre_categoria_documento}</td>
+        <td align="left" class="nivel02">{if $REG[linea].preferencial == '1'}Preferencial{else}Com&uacute;n{/if}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>

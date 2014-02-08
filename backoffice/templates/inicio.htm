@@ -1,0 +1,129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Prolesa - Sitio de Administraci&oacute;n</title>
+<meta HTTP-EQUIV="CONTENT-TYPE" content="text/html; charset=ISO-8859-15" >
+<meta name="CONTENT-TYPE" content="text/html; charset=ISO-8859-15" >
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<link href="templates/src/estilos.css" rel="stylesheet" type="text/css" media="screen">
+<link href="templates/src/menues.css" rel="stylesheet" type="text/css" media="screen">
+<script language="javascript" src="templates/src/jscripts.js"></script>
+<script language="javascript" src="templates/src/jquery.js"></script>
+<script language="javascript" src="templates/src/menues.js"></script>
+<script language="javascript" src="templates/src/keypress_validation.js"></script>
+</head>
+<body bgcolor="#FF0000" background="templates/img/pg_fnd.gif" style="background-repeat:repeat-x;" onLoad="window.defaultStatus='Mekano4';">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" id="cien1">
+	<tr>
+		<td width="12"  height="42"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="315" height="76" valign="bottom" rowspan="2"><img src="templates/img/pg_sup_esq_izq.gif" width="315" height="76" usemap="#inicio" border="0" /></td>
+		<td width="90%" height="42">&nbsp;</td>
+		<td width="197" height="42" valign="top" align="right"><font class="comentario">{$USUARIO}</font></td>
+		<td width="12"  height="42"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="12"  height="35">&nbsp;</td>
+		<td width="90%" height="35" background="templates/img/pg_sup_fnd.gif">&nbsp;</td>
+		<td width="197" height="35" valign="bottom"><img src="templates/img/pg_sup_esq_der.gif" width="197" height="35" border="0" usemap="#salir" /></td>
+		<td width="12"  height="35">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="12"   height="90%"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="100%"  height="90%" colspan="3" valign="top">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" id="cien2">
+			<tr>
+				<td width="13"   height="24" background="templates/img/cnl_fnd.gif"><img src="templates/img/cnl_esq_izq.gif" width="13" height="24" /></td>
+				<td width="100%" height="24" background="templates/img/cnl_fnd.gif" colspan="2">&nbsp;</td>
+				<td width="10" height="24" background="templates/img/cnl_fnd.gif"><img src="templates/img/cnl_esq_der.gif" width="10" height="24" /></td>
+			</tr>
+			<tr>
+				<td width="13"   height="28" background="templates/img/pg_tit_fnd.gif"><img src="templates/img/pg_tit_esq_izq.gif" /></td>
+				<td width="100%" height="28" background="templates/img/pg_tit_fnd.gif" colspan="2" bgcolor="#FF0000" valign="bottom">&nbsp;</td>
+				<td width="10"   height="28" background="templates/img/pg_tit_fnd.gif"><img src="templates/img/pg_tit_esq_der.gif" /></td>
+			</tr>
+			<tr>
+				<td width="13" height="100%" background="templates/img/pg_cnt_izq.gif"><img src="templates/img/transp.gif" width="13" height="1" /></td>
+				<td width="310px" height="100%" bgcolor="#FF0000" valign="top" align="right">
+					<br />
+
+					<!-- contenido de la p�ina -->
+					{include file="barra_lateral.htm"}
+
+
+				</td>
+				<td width="84%" bgcolor="#FF0000" align="center" valign="top">
+					<img src="templates/img/logo.gif">
+					<br>{$DIRECCION}
+				<!-- /contenido de la p�ina -->
+
+				</td>
+				<td width="10"   height="100%" background="templates/img/pg_cnt_der.gif"><img src="templates/img/transp.gif" width="10" height="1" /></td>
+			</tr>
+		</table>
+		</td>
+		<td width="12" height="90%"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="12"  height="45"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="315" height="45"><img src="templates/img/pg_inf_esq_izq.gif" width="315" height="45" /></td>
+		<td width="90%" height="45" background="templates/img/pg_inf_fnd.gif">&nbsp;</td>
+		<td width="197" height="45"><img src="templates/img/pg_inf_esq_der.gif" width="197" height="45" /></td>
+		<td width="12"  height="45"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+</table>
+
+<!-- menes -->
+<div style="visibility: hidden;" id="mnu_empresasContainer" class="menu">
+	<div style="top: -69px;" id="mnu_empresasContent">
+		<script type="text/javascript">
+			new ypSlideOutMenu("mnu_empresas","down",22,101,90,110)
+		</script>
+		<ul id="nav">
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 01</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 02</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 03</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 04</a></li>
+		</ul>
+	</div>
+</div>
+<div style="visibility: hidden;" id="mnu_facturacionContainer" class="menu">
+	<div style="top: -69px;" id="mnu_facturacionContent">
+		<script type="text/javascript">
+			new ypSlideOutMenu("mnu_facturacion","down",112,101,115,50)
+		</script>
+		<ul id="nav">
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 01</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 02</a></li>
+		</ul>
+	</div>
+</div>
+<div style="visibility: hidden;" id="mnu_stockContainer" class="menu">
+	<div style="top: -69px;" id="mnu_stockContent">
+		<script type="text/javascript">
+			new ypSlideOutMenu("mnu_stock","down",222,101,75,160)
+		</script>
+		<ul id="nav">
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 01</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 02</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 03</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 04</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 03</a></li>
+			<li><a href="#"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />enlace 04</a></li>
+		</ul>
+	</div>
+</div>
+<!-- /menes -->
+
+<!-- mapas -->
+<map name="inicio">
+	<area shape="circle" coords="33,59,9" href="home.php" title="Inicio">
+</map>
+<map name="salir">
+	<area shape="circle" coords="142,16,7" href="./help.php?MOD={$NOMSCRIPT}" title="Ayuda">
+	<area shape="circle" coords="163,18,9" href="javascript:;" onclick="(confirm('Desea cerrar la sesion?'))?location.href='./logout.php':'';" title="Cerrar la sesion">
+</map>
+<!-- /mapas -->
+
+</body>
+</html>

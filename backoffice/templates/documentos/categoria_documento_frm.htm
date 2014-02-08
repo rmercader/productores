@@ -1,0 +1,41 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.forms["frmCatDoc"].elements["NOMBRE_CATEGORIA_DOCUMENTO"].value == ""){
+		errores = "Debe ingresar el nombre.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar la categoria de documentos:\n"+errores);
+	}
+	else{
+		document.forms["frmCatDoc"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmCatDoc" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="2" cellspacing="2">
+		<tr>
+			<th align="left">Nombre de la categor&iacute;a de documento</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="text" name="NOMBRE_CATEGORIA_DOCUMENTO" size="60" value="{$NOMBRE_CATEGORIA_DOCUMENTO}" {$SOLO_LECTURA}>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="ID_CATEGORIA_DOCUMENTO" value="{$ID_CATEGORIA_DOCUMENTO}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmCatDoc"].elements["ERROR"].value != "")
+		alert(document.forms["frmCatDoc"].elements["ERROR"].value);
+</script>
+{/literal}

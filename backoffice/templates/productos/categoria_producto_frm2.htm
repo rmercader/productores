@@ -1,0 +1,115 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.forms["frmCatProd"].elements["nombre_categoria_producto"].value == ""){
+		errores = "Debe ingresar el nombre.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar la categoria de producto:\n"+errores);
+	}
+	else{
+		document.forms["frmCatProd"].submit();
+	}
+}
+
+function cambiaCategoriaPadre(evt){
+	var selInd = document.getElementById("id_categoria_padre").selectedIndex;
+	if(selInd != 0){
+		// Hay que solicitar PDFs de catalogo
+		var cntPdfs = parseInt(document.getElementById('cant_pdfs').value*1);
+		if(cntPdfs == 0){
+			cntPdfs = cntPdfs + 1;
+			document.getElementById('cant_pdfs').value = cntPdfs;
+			document.getElementById('div_pdfs').innerHTML =  '<input type="file" name="pdf_1" id="pdf_1" onchange="setBlock();" size="60" />';
+			document.getElementById('div_pdfs').innerHTML += '<div id="moreUploads"></div>';
+			document.getElementById('div_pdfs').innerHTML += '<div id="moreLink" style="display:none;"><a href="javascript:agregarNuevoUploader();">Agregar otro archivo</a></div>';
+		}
+	}
+	else{
+		var conf = confirm('Esto har\u00e1 que se pierdan los documentos agregados. \u00BFDesea continuar de todos modos?');
+		if(conf){
+			document.getElementById('div_pdfs').innerHTML = '';
+			document.getElementById('cant_pdfs').value = 0;
+		}
+		else{
+			evt.handled = false;
+		}
+	}
+}
+
+function agregarNuevoUploader(){
+	var cntPdfs = parseInt(document.getElementById('cant_pdfs').value*1);
+	cntPdfs = cntPdfs + 1;
+	document.getElementById('cant_pdfs').value = cntPdfs;
+	var d = document.createElement("div");
+	var file = document.createElement("input");
+	file.setAttribute("type", "file");
+	file.setAttribute("size", "60");
+    file.setAttribute("name", "pdf_" + cntPdfs);
+	file.setAttribute("id", "pdf_" + cntPdfs);
+    d.appendChild(file);
+	document.getElementById("moreUploads").appendChild(d);
+}
+
+function setBlock() {
+	document.getElementById('moreLink').style.display = 'block';
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmCatProd" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="2" cellspacing="2">
+		<tr>
+			<th align="left">Categor&iacute;a padre</th>
+		</tr>
+        {if $SOLO_LECTURA != ''}
+        <tr>	
+            <td align="left">
+                <input type="text" name="categoria_producto_txt" size="60" value="{$categoria_producto_txt}" readonly="readonly">
+            </td>
+        </tr>
+        {else}
+        <tr>	
+            <td align="left">
+                <select name="id_categoria_padre" id="id_categoria_padre" onchange="cambiaCategoriaPadre(event);">
+                    {html_options values=$categoria_producto_id selected=$id_categoria_padre output=$categoria_producto_nom}
+                </select>
+            </td>
+        </tr>
+        {/if}        
+		<tr>
+			<td align="left">
+				
+			</td>
+		</tr>
+        <tr>
+			<th align="left">Nombre de la categor&iacute;a de productos</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="text" name="nombre_categoria_producto" size="60" value="{$nombre_categoria_producto}" {$SOLO_LECTURA} maxlength="100">
+			</td>
+		</tr>
+		<tr>
+			<td align="left">
+				<div id="div_pdfs">
+					
+				</div>	
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_categoria_producto" value="{$id_categoria_producto}">
+	<input type="hidden" name="cant_pdfs" value="{$cant_pdfs}" id="cant_pdfs">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmCatProd"].elements["ERROR"].value != "")
+		alert(document.forms["frmCatProd"].elements["ERROR"].value);
+</script>
+{/literal}

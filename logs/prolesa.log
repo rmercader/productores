@@ -1,0 +1,369 @@
+[26-5-2012 19:36] feria_evento
+[26-5-2012 20:27] feria_evento
+[26-5-2012 20:27] feria_evento
+[26-5-2012 20:52] Quinta los milagros é
+[13-7-2012 13:05] feria_actividad
+[13-7-2012 13:05] feria_actividad
+[28-8-2012 00:44] feria_actividad
+[28-8-2012 00:48] feria_actividad
+[28-8-2012 00:48] feria_actividad
+[28-8-2012 00:48] faq
+[25-7-2013 00:43] 
+[25-7-2013 00:44] ADORecordSet_mysql Object
+(
+    [databaseType] => mysql
+    [canSeek] => 1
+    [dataProvider] => native
+    [fields] => 
+    [blobSize] => 100
+    [sql] => SELECT c.nombre_categoria_producto, c.id_categoria_padre, p.nombre_categoria_producto AS unidad FROM categoria_producto c INNER JOIN categoria_producto p ON c.id_categoria_padre = c.id_categoria_producto WHERE c.id_categoria_producto = 108
+    [EOF] => 1
+    [emptyTimeStamp] => &nbsp;
+    [emptyDate] => &nbsp;
+    [debug] => 
+    [timeCreated] => 0
+    [bind] => 
+    [fetchMode] => 1
+    [connection] => ADODB_mysql Object
+        (
+            [databaseType] => mysql
+            [dataProvider] => mysql
+            [hasInsertID] => 1
+            [hasAffectedRows] => 1
+            [metaTablesSQL] => SHOW TABLES
+            [metaColumnsSQL] => SHOW COLUMNS FROM %s
+            [fmtTimeStamp] => 'Y-m-d H:i:s'
+            [hasLimit] => 1
+            [hasMoveFirst] => 1
+            [hasGenID] => 1
+            [isoDates] => 1
+            [sysDate] => CURDATE()
+            [sysTimeStamp] => NOW()
+            [hasTransactions] => 
+            [forceNewConnect] => 
+            [poorAffectedRows] => 1
+            [clientFlags] => 0
+            [substr] => substring
+            [nameQuote] => `
+            [_genIDSQL] => update %s set id=LAST_INSERT_ID(id+1);
+            [_genSeqSQL] => create table %s (id int not null)
+            [_genSeq2SQL] => insert into %s values (%s)
+            [_dropSeqSQL] => drop table %s
+            [database] => prolesa
+            [host] => localhost
+            [user] => prolesa
+            [password] => prolesa
+            [debug] => 
+            [maxblobsize] => 262144
+            [concat_operator] => +
+            [length] => length
+            [random] => rand()
+            [upperCase] => upper
+            [fmtDate] => 'Y-m-d'
+            [true] => 1
+            [false] => 0
+            [replaceQuote] => \'
+            [charSet] => 
+            [metaDatabasesSQL] => 
+            [uniqueOrderBy] => 
+            [emptyDate] => &nbsp;
+            [emptyTimeStamp] => &nbsp;
+            [lastInsID] => 
+            [hasTop] => 
+            [readOnly] => 
+            [genID] => 0
+            [raiseErrorFn] => 
+            [cacheSecs] => 3600
+            [arrayClass] => ADORecordSet_array
+            [noNullStrings] => 
+            [numCacheHits] => 0
+            [numCacheMisses] => 0
+            [pageExecuteCountRows] => 1
+            [uniqueSort] => 
+            [leftOuter] => 
+            [rightOuter] => 
+            [ansiOuter] => 
+            [autoRollback] => 
+            [fnExecute] => 
+            [fnCacheExecute] => 
+            [blobEncodeType] => 
+            [rsPrefix] => ADORecordSet_
+            [autoCommit] => 1
+            [transOff] => 0
+            [transCnt] => 0
+            [fetchMode] => 
+            [_oldRaiseFn] => 
+            [_transOK] => 
+            [_connectionID] => Resource id #28
+            [_errorMsg] => 
+            [_errorCode] => 
+            [_queryID] => Resource id #45
+            [_isPersistentConnection] => 
+            [_bindInputArray] => 
+            [_evalAll] => 
+            [_affected] => 
+            [_logsql] => 
+            [databaseName] => prolesa
+        )
+
+    [_numOfRows] => 0
+    [_numOfFields] => 3
+    [_queryID] => Resource id #45
+    [_currentRow] => -1
+    [_closed] => 
+    [_inited] => 1
+    [_obj] => 
+    [_names] => 
+    [_currentPage] => -1
+    [_atFirstPage] => 
+    [_atLastPage] => 
+    [_lastPageNo] => -1
+    [_maxRecordCount] => 0
+    [datetime] => 
+    [adodbFetchMode] => 2
+)
+
+[25-7-2013 01:33] ADORecordSet_mysql Object
+(
+    [databaseType] => mysql
+    [canSeek] => 1
+    [dataProvider] => native
+    [fields] => Array
+        (
+            [nombre_categoria_producto] => Accesorios de Seguridad 
+            [id_categoria_padre] => 10
+            [unidad] => Insumos
+        )
+
+    [blobSize] => 100
+    [sql] => SELECT c.nombre_categoria_producto, c.id_categoria_padre, p.nombre_categoria_producto AS unidad FROM categoria_producto c INNER JOIN categoria_producto p ON c.id_categoria_padre = p.id_categoria_producto WHERE c.id_categoria_producto = 108
+    [EOF] => 
+    [emptyTimeStamp] => &nbsp;
+    [emptyDate] => &nbsp;
+    [debug] => 
+    [timeCreated] => 0
+    [bind] => 
+    [fetchMode] => 1
+    [connection] => ADODB_mysql Object
+        (
+            [databaseType] => mysql
+            [dataProvider] => mysql
+            [hasInsertID] => 1
+            [hasAffectedRows] => 1
+            [metaTablesSQL] => SHOW TABLES
+            [metaColumnsSQL] => SHOW COLUMNS FROM %s
+            [fmtTimeStamp] => 'Y-m-d H:i:s'
+            [hasLimit] => 1
+            [hasMoveFirst] => 1
+            [hasGenID] => 1
+            [isoDates] => 1
+            [sysDate] => CURDATE()
+            [sysTimeStamp] => NOW()
+            [hasTransactions] => 
+            [forceNewConnect] => 
+            [poorAffectedRows] => 1
+            [clientFlags] => 0
+            [substr] => substring
+            [nameQuote] => `
+            [_genIDSQL] => update %s set id=LAST_INSERT_ID(id+1);
+            [_genSeqSQL] => create table %s (id int not null)
+            [_genSeq2SQL] => insert into %s values (%s)
+            [_dropSeqSQL] => drop table %s
+            [database] => prolesa
+            [host] => localhost
+            [user] => prolesa
+            [password] => prolesa
+            [debug] => 
+            [maxblobsize] => 262144
+            [concat_operator] => +
+            [length] => length
+            [random] => rand()
+            [upperCase] => upper
+            [fmtDate] => 'Y-m-d'
+            [true] => 1
+            [false] => 0
+            [replaceQuote] => \'
+            [charSet] => 
+            [metaDatabasesSQL] => 
+            [uniqueOrderBy] => 
+            [emptyDate] => &nbsp;
+            [emptyTimeStamp] => &nbsp;
+            [lastInsID] => 
+            [hasTop] => 
+            [readOnly] => 
+            [genID] => 0
+            [raiseErrorFn] => 
+            [cacheSecs] => 3600
+            [arrayClass] => ADORecordSet_array
+            [noNullStrings] => 
+            [numCacheHits] => 0
+            [numCacheMisses] => 0
+            [pageExecuteCountRows] => 1
+            [uniqueSort] => 
+            [leftOuter] => 
+            [rightOuter] => 
+            [ansiOuter] => 
+            [autoRollback] => 
+            [fnExecute] => 
+            [fnCacheExecute] => 
+            [blobEncodeType] => 
+            [rsPrefix] => ADORecordSet_
+            [autoCommit] => 1
+            [transOff] => 0
+            [transCnt] => 0
+            [fetchMode] => 
+            [_oldRaiseFn] => 
+            [_transOK] => 
+            [_connectionID] => Resource id #28
+            [_errorMsg] => 
+            [_errorCode] => 
+            [_queryID] => Resource id #45
+            [_isPersistentConnection] => 
+            [_bindInputArray] => 
+            [_evalAll] => 
+            [_affected] => 
+            [_logsql] => 
+            [databaseName] => prolesa
+        )
+
+    [_numOfRows] => 1
+    [_numOfFields] => 3
+    [_queryID] => Resource id #45
+    [_currentRow] => 0
+    [_closed] => 
+    [_inited] => 1
+    [_obj] => 
+    [_names] => 
+    [_currentPage] => -1
+    [_atFirstPage] => 
+    [_atLastPage] => 
+    [_lastPageNo] => -1
+    [_maxRecordCount] => 0
+    [datetime] => 
+    [adodbFetchMode] => 2
+)
+
+[25-7-2013 01:51] ADORecordSet_mysql Object
+(
+    [databaseType] => mysql
+    [canSeek] => 1
+    [dataProvider] => native
+    [fields] => Array
+        (
+            [nombre_categoria_producto] => Otariedad
+            [id_categoria_padre] => 111
+            [unidad] => Cualquier cosa
+        )
+
+    [blobSize] => 100
+    [sql] => SELECT c.nombre_categoria_producto, c.id_categoria_padre, p.nombre_categoria_producto AS unidad FROM categoria_producto c INNER JOIN categoria_producto p ON c.id_categoria_padre = p.id_categoria_producto WHERE c.id_categoria_producto = 112
+    [EOF] => 
+    [emptyTimeStamp] => &nbsp;
+    [emptyDate] => &nbsp;
+    [debug] => 
+    [timeCreated] => 0
+    [bind] => 
+    [fetchMode] => 1
+    [connection] => ADODB_mysql Object
+        (
+            [databaseType] => mysql
+            [dataProvider] => mysql
+            [hasInsertID] => 1
+            [hasAffectedRows] => 1
+            [metaTablesSQL] => SHOW TABLES
+            [metaColumnsSQL] => SHOW COLUMNS FROM %s
+            [fmtTimeStamp] => 'Y-m-d H:i:s'
+            [hasLimit] => 1
+            [hasMoveFirst] => 1
+            [hasGenID] => 1
+            [isoDates] => 1
+            [sysDate] => CURDATE()
+            [sysTimeStamp] => NOW()
+            [hasTransactions] => 
+            [forceNewConnect] => 
+            [poorAffectedRows] => 1
+            [clientFlags] => 0
+            [substr] => substring
+            [nameQuote] => `
+            [_genIDSQL] => update %s set id=LAST_INSERT_ID(id+1);
+            [_genSeqSQL] => create table %s (id int not null)
+            [_genSeq2SQL] => insert into %s values (%s)
+            [_dropSeqSQL] => drop table %s
+            [database] => prolesa
+            [host] => localhost
+            [user] => prolesa
+            [password] => prolesa
+            [debug] => 
+            [maxblobsize] => 262144
+            [concat_operator] => +
+            [length] => length
+            [random] => rand()
+            [upperCase] => upper
+            [fmtDate] => 'Y-m-d'
+            [true] => 1
+            [false] => 0
+            [replaceQuote] => \'
+            [charSet] => 
+            [metaDatabasesSQL] => 
+            [uniqueOrderBy] => 
+            [emptyDate] => &nbsp;
+            [emptyTimeStamp] => &nbsp;
+            [lastInsID] => 
+            [hasTop] => 
+            [readOnly] => 
+            [genID] => 0
+            [raiseErrorFn] => 
+            [cacheSecs] => 3600
+            [arrayClass] => ADORecordSet_array
+            [noNullStrings] => 
+            [numCacheHits] => 0
+            [numCacheMisses] => 0
+            [pageExecuteCountRows] => 1
+            [uniqueSort] => 
+            [leftOuter] => 
+            [rightOuter] => 
+            [ansiOuter] => 
+            [autoRollback] => 
+            [fnExecute] => 
+            [fnCacheExecute] => 
+            [blobEncodeType] => 
+            [rsPrefix] => ADORecordSet_
+            [autoCommit] => 1
+            [transOff] => 0
+            [transCnt] => 0
+            [fetchMode] => 
+            [_oldRaiseFn] => 
+            [_transOK] => 
+            [_connectionID] => Resource id #28
+            [_errorMsg] => 
+            [_errorCode] => 
+            [_queryID] => Resource id #45
+            [_isPersistentConnection] => 
+            [_bindInputArray] => 
+            [_evalAll] => 
+            [_affected] => 
+            [_logsql] => 
+            [databaseName] => prolesa
+        )
+
+    [_numOfRows] => 1
+    [_numOfFields] => 3
+    [_queryID] => Resource id #45
+    [_currentRow] => 0
+    [_closed] => 
+    [_inited] => 1
+    [_obj] => 
+    [_names] => 
+    [_currentPage] => -1
+    [_atFirstPage] => 
+    [_atLastPage] => 
+    [_lastPageNo] => -1
+    [_maxRecordCount] => 0
+    [datetime] => 
+    [adodbFetchMode] => 2
+)
+
+[25-7-2013 01:57] ID unidad: 67
+[25-7-2013 02:00] ID unidad: 67
+[25-7-2013 02:48] SELECT p.id_producto, p.nombre_producto, p.descripcion FROM producto_busqueda p WHERE MATCH(p.nombre_producto, p.descripcion, p.categoria, p.unidad) AGAINST ('Tanque' IN NATURAL LANGUAGE MODE) ORDER BY p.nombre_producto LIMIT 0, 6 
+[25-7-2013 02:53] SELECT p.id_producto, p.nombre_producto, p.descripcion FROM producto_busqueda p WHERE MATCH(p.nombre_producto, p.descripcion, p.categoria, p.unidad) AGAINST ('mercader') ORDER BY p.nombre_producto LIMIT 0, 6 

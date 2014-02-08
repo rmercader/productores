@@ -1,0 +1,41 @@
+#busqueda-bloque {width:100%; height:100px; border-bottom:1px solid #CCC;}
+
+#spot-title {width:100%; font-family:Arial, Helvetica, sans-serif; height:30px; }
+
+#spot-title img {float:left; margin-left:5px; margin-right:7px; }
+
+#spot-title h2 {float:left; margin-left:2px; font-size: 20px; font-weight:normal; margin-top:0px; color:#669f00; }
+
+#spot-buscador { width:100%; height:60px; clear:both; }
+
+#buscinput { height:43px; width:80%; border:1px solid #d8d8d8; margin:5px; float:left;padding-left: 3px; }
+#boton {background:url(../images/button-search.png) no-repeat 0 0; height:43px; width:57px; border:none; margin:5px; float:left;}
+#boton:hover {background:url(../images/button-search.png) no-repeat 0 0; height:43px; width:57px; border:none; margin:5px; float:left;}
+
+.resultados {width:100%; margin-bottom:20px; margin-left:5px; text-align: left;}
+
+.resultitulo {margin-top:5px; margin-bottom:5px;}
+
+.resultitulo a {font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#0042ff; text-decoration:underline;}
+
+.resultitulo a:hover {font-family:Arial, Helvetica, sans-serif; font-size:15px; color:#0042ff; text-decoration:underline; margin:5px;}
+
+.resurl {margin-top:5px; margin-bottom:5px;}
+
+.resurl a{font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#3ba71c; font-weight:normal;}
+
+.resurl a:hover {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#3ba71c; font-weight:normal;}
+
+.resultados p {font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000; margin-top:5px; margin-bottom:5px;}
+
+#paginator { width:100%; height:40px; font-family:Arial, Helvetica, sans-serif; font-size:14px; text-align:center; }
+
+#paginator a {font-family:Arial, Helvetica, sans-serif; font-size:12px; text-decoration:none; color:#69F;}
+
+#paginator a:link {font-family:Arial, Helvetica, sans-serif; font-size:14px; text-decoration:none; color:#69F;}
+
+#paginator a:active {font-family:Arial, Helvetica, sans-serif; font-size:14px; text-decoration:none; color:#69F;}
+
+#paginator a:hover {font-family:Arial, Helvetica, sans-serif; font-size:14px; text-decoration:underline; font-weight:bold; color:#36F;}
+
+#paginator a:visited {font-family:Arial, Helvetica, sans-serif; font-size:14px; text-decoration:underline; color: #999;}

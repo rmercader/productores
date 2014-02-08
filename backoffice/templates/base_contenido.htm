@@ -1,0 +1,27 @@
+<table width="95%" border="0" cellpadding="0" cellspacing="0" align="center" id="cien4">
+	{if $SOLAPA == ''}
+	<tr>
+		<td width="14" height="27" style="background-repeat:repeat-x; background: url(templates/img/pnl_esq_sup_izq.gif);">&nbsp;</td>
+		<td height="27" style="background-repeat:repeat-x; background: url(templates/img/pnl_fnd_sup.gif);">
+			<img src="templates/img/transp.gif">
+		</td>
+		<td width="16" height="27" style="background-repeat:repeat-x; background: url(templates/img/pnl_esq_sup_der.gif);">&nbsp;</td>
+	</tr>
+	{else}
+	<tr>
+		<td colspan="3" height="27">
+		{$SOLAPA}
+		</td>
+	</tr>
+	{/if}
+	<tr>
+		<td width="14" background="templates/img/pnl_fnd_izq.gif" style="background-repeat:repeat-y;">&nbsp;</td>
+		<td background="templates/img/css_td02.gif" align="left" valign="top">{$MODCONT}&nbsp;</td>
+		<td width="16" background="templates/img/pnl_fnd_der.gif" style="background-repeat:repeat-y;">&nbsp;</td>
+	</tr>
+	<tr>
+		<td height="14" width="14" style="background-repeat:repeat-x;">&nbsp;</td>
+		<td height="14" >&nbsp;</td>
+		<td height="14" width="16" style="background-repeat:repeat-x;">&nbsp;</td>
+	</tr>
+</table>

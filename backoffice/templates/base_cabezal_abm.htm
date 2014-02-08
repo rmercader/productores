@@ -1,0 +1,83 @@
+<table width="95%" align="center" cellspacing="0" border="0">
+  <tr>
+    <td align="left"><font class="nivel01">{$NOMFORM}</font></td>
+    <td colspan="3" align="right"><font class="nivel02">{$NOMACCION}</font></td>
+  </tr>
+  <tr>
+    <td colspan="4" valign="top"><hr></td>
+  </tr>
+  <tr>
+    <td colspan="4" valign="top">&nbsp;</td>
+  </tr>
+{if $ACC == 'C'}
+  <tr>
+    <td height="20" valign="top">&nbsp;</td>
+	{if $SCRIPT_FICHA <> ''}
+    <td width="26" valign="top"><a href="{$SCRIPT_FICHA}" target="_blank"><img src="templates/img/pdf.gif" alt="Generar ficha" name="btPDF" border="0" id="btPDF" ></a></td>
+	{else}
+    <td width="26" valign="top">&nbsp;</td>
+	{/if}
+    <td valign="top">    
+    </td>
+    <td valign="top" align="right" width="130">
+    	<a href="{$SCRIPT_SALIR}"><img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir"></a>
+    </td>
+  </tr>
+{/if}
+{if $ACC == 'B'}
+  <tr>
+  	<td colspan="4" align="center">Confirme la eliminaci&oacute;n del registro cliqueando en Eliminar</td>
+  </tr>
+  <tr>
+    <td valign="top">&nbsp;</td>    
+    <td valign="top" align="right" width="130"><input name="btBorrar" type="image" id="btBorrar" src="templates/img/eliminar.png" alt="Confirmar borrar" border="0" class="nada"></td>
+    <td valign="top" align="right" width="130"><a href="{$SCRIPT_SALIR}"><img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir" ></a></td>
+  </tr>
+{/if}
+{if $ACC == 'A'}
+  <tr>
+    <td valign="top">&nbsp;</td>    
+    <td valign="top" align="right" width="130"><input name="btGrabar" type="image" id="btGrabar" src="templates/img/guardar.png" alt="Confirmar cambios" border="0" class="nada"></td>
+    <td valign="top" align="right" width="130"><a href="{$SCRIPT_SALIR}"><img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir" ></a></td>
+  </tr>
+{/if}
+{if $ACC == 'M'}
+  <tr>
+    <td valign="top">&nbsp;</td>    
+    </td>
+    <td valign="top" align="right" width="130">
+    	<input name="btGrabar" type="image" id="btGrabar" src="templates/img/guardar.png"  alt="Confirmar cambios" border="0" class="nada">
+    </td>
+    <td valign="top" align="right" width="130">
+    	<a href="{$SCRIPT_SALIR}">
+    		<img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir">
+    	</a>
+    </td>
+  </tr>
+{/if}
+{if $ACC == 'S'}
+  <tr>
+    <td valign="top">&nbsp;</td>    
+    </td>
+    <td valign="top" align="right" width="130">
+    	<input name="btGrabar" type="image" id="btGrabar" src="templates/img/guardar.png"  alt="Confirmar cambios" border="0" class="nada">
+    </td>
+    <td valign="top" align="right" width="130">
+    	<a href="{$SCRIPT_SALIR}">
+    		<img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir">
+    	</a>
+    </td>
+  </tr>
+{/if}
+{if $ACC == 'X'}
+  <tr>
+    <td valign="top">&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+    <td align="right" valign="top" width="130">
+    	<a href="{$SCRIPT_SALIR}">
+    		<img src="templates/img/volver.png" alt="Salir" name="btSalir" border="0" id="btSalir">
+    	</a>
+    </td>
+  </tr>
+{/if}
+</table>

@@ -1,0 +1,76 @@
+{include file="menu-feria.htm"}
+<br /><br /><br />
+{literal}
+<style>
+.cabezal_agenda {
+	width:166px;
+	height:25px;
+	background:url(pics/fecha_bg_agenda.jpg) no-repeat;
+	clear:both;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#FFF;
+	font-weight:bold;
+	padding-top:7px;
+	padding-left:20px;
+	text-transform:uppercase;
+}
+.info_agenda {
+	background-color:#f4f4f4;
+	padding-top:16px;
+	padding-left:15px;
+	padding-bottom:15px;
+	padding-right: 10px;
+	border-bottom:#666 1px solid;
+	
+}
+.info_agenda li {
+	background:url(pics/hora_agenda.jpg) left 0px no-repeat;
+	display:block;
+	color:#4f4f4f;
+	font-size:13px;
+	padding-left:26px;
+	height:22px;
+	font-weight:bold;
+	padding-top:2px;
+	width:50px;
+	float:left;
+}
+.nombre_actividad {
+	width:400px;
+	float:left;
+}
+.nombre_actividad li {
+	background: url(pics/ico_grande.jpg) left 0px no-repeat;
+	display:block;
+	color:#669d00;
+	font-size:15px;
+	padding-left:26px;
+	height:22px;
+	font-weight:bold;
+	padding-top:1px;
+	width:500px;
+}
+</style>
+{/literal}
+<div id="contenedor_agenda">
+	<div class="titulos_grande title_agenda">Agenda de Actividades</div>
+    {section name=linea loop=$AGENDA}
+    <div>
+        <div class="cont_agenda">
+            <div class="cabezal_agenda">{$AGENDA[linea].fecha_mostrar}</div>
+            {section name=act loop=$AGENDA[linea].actividades}
+            <div class="info_agenda">
+                <li>{$AGENDA[linea].actividades[act].hora_dsc}</li>
+                <div class="nombre_actividad">
+                    <li>{$AGENDA[linea].actividades[act].nombre_actividad}</li>
+                </div>
+                <br />
+                <br />
+                {$AGENDA[linea].actividades[act].descripcion}
+        	</div>
+            {/section}
+        </div>
+    </div>
+    {/section}
+</div>

@@ -1,0 +1,110 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	if(errores != ""){
+		alert("No es posible ingresar la novedad:\n"+errores);
+	}
+	else{
+		document.forms["frmNovedad"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmNovedad" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="99%" cellpadding="2" cellspacing="2">
+					<tr>
+                    	<td align="left">
+                        	<table>
+                            	<tr>
+                                    <th align="right">Visible en sección noticias</th>
+                                    <td align="left">
+                                        <input type="checkbox" name="VISIBLE" {$VISIBLE}>
+                                    </td>
+                                    <th align="right">Visible en la home</th>
+                                    <td align="left">
+                                        <input type="checkbox" name="PORTADA" {$PORTADA}>
+                                    </td>
+                                    <th align="right">Para newsletter</th>
+                                    <td align="left">
+                                        <input type="checkbox" name="NEWSLETTER" {$NEWSLETTER}>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+					<tr>
+						<th align="left">T&iacute;tulo</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="TITULO" size="60" value="{$TITULO}" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">Categor&iacute;a</th>
+					</tr>
+					{if $SOLO_LECTURA != ''}
+					<tr>	
+						<td align="left">
+							<input type="text" name="CATEGORIA_NOVEDAD_TXT" size="60" value="{$CATEGORIA_NOVEDAD_TXT}" readonly="readonly">
+						</td>
+					</tr>
+					{else}
+					<tr>	
+						<td align="left">
+							<select name="ID_CATEGORIA_NOVEDAD" id="ID_CATEGORIA_NOVEDAD">
+								{html_options values=$CATEGORIA_NOVEDAD_ID selected=$ID_CATEGORIA_NOVEDAD output=$CATEGORIA_NOVEDAD_NOM}
+							</select>
+						</td>
+					</tr>
+					{/if}
+					<tr>
+						<th align="left">Imagen {if $SOLO_LECTURA == ''}(Menos de 500 KB, al menos 300 píxels de largo){/if}</th>
+					</tr>
+					<tr>
+						<td align="left">
+							{if $SOLO_LECTURA == ''}
+							<input type="file" name="IMAGEN_1" size="90">&nbsp;
+							{else}
+							<img src="{$SRC_IMAGEN}" border="0" alt="" width="300" height="140">
+							{/if}
+						</td>
+					</tr>
+					<tr>
+						<th align="left">Cabezal principal</th>
+					</tr>
+                    <tr>	
+						<td align="left">
+							<textarea id="CABEZAL" name="CABEZAL" cols="100" rows="10">{$CABEZAL}</textarea>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Texto</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<textarea id="TEXTO" name="TEXTO" cols="100" rows="10">{$TEXTO}</textarea>
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="ID_NOVEDAD" value="{$ID_NOVEDAD}">
+	<input type="hidden" name="CANTIDAD_IMAGENES" value="{$CANTIDAD_IMAGENES}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmNovedad"].elements["ERROR"].value != "")
+		alert(document.forms["frmNovedad"].elements["ERROR"].value);
+</script>
+{/literal}

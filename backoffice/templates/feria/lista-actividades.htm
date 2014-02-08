@@ -1,0 +1,28 @@
+<table align="left" cellspacing="0" width="70%">
+	<tr>
+    	<td align="center" class="nivel01">Nombre</td>
+        <td align="center" class="nivel01" width="110">Detalles</td>
+		<td align="center" class="nivel01" width="110">Fecha</td>
+        <td align="center" class="nivel01" width="110">Hora de inicio</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="left" class="nivel02">{$REG[linea].nombre}</td>
+        <td align="left" class="nivel02">
+        	<span class="hotspot" onmouseover="tooltip.show('{$REG[linea].descripcion}');" onmouseout="tooltip.hide();"><b>Ver detalles</b></span>
+        </td>		
+		<td align="left" class="nivel02">{$REG[linea].fecha_dsc}</td>
+        <td align="left" class="nivel02">{$REG[linea].hora_dsc}</td>        
+		<td width="50" class="nivel02" nowrap="nowrap" valign="middle" align="center">
+        	{include file="base_accion_grid.htm"}
+            <a href="javascript: prepararEdicion({$REG[linea].id}, '{$REG[linea].nombre}', '{$REG[linea].fecha}', '{$REG[linea].hora}', '{$REG[linea].descripcion}');" title="Editar">
+                <img src="templates/img/ico-lst-editar.gif" alt="Editar" border="0" hspace="2">
+            </a>
+            <a href="javascript: eliminar({$REG[linea].id});" title="Eliminar">
+                <img src="templates/img/ico-lst-eliminar.gif" alt="Eliminar" border="0" hspace="2">
+            </a>
+        </td>
+	</tr>
+	{/section}
+</table>

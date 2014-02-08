@@ -1,0 +1,49 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.forms["frmCatNov"].elements["NOMBRE_CATEGORIA_NOVEDAD"].value == ""){
+		errores = "Debe ingresar el nombre.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar la categoria de novedad:\n"+errores);
+	}
+	else{
+		document.forms["frmCatNov"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmCatNov" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="2" cellspacing="2">
+		<tr>
+			<th align="left">Nombre de la categor&iacute;a de novedad</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="text" name="NOMBRE_CATEGORIA_NOVEDAD" size="60" value="{$NOMBRE_CATEGORIA_NOVEDAD}" {$SOLO_LECTURA} maxlength="100">
+			</td>
+		</tr>
+		<tr>
+			<th align="left">Visible en el sitio</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="checkbox" name="VISIBLE" {$VISIBLE}>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="ID_CATEGORIA_NOVEDAD" value="{$ID_CATEGORIA_NOVEDAD}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmCatNov"].elements["ERROR"].value != "")
+		alert(document.forms["frmCatNov"].elements["ERROR"].value);
+</script>
+{/literal}

@@ -1,0 +1,108 @@
+<script src="templates/src/swfupload.js"></script>
+<script src="templates/src/jquery-asyncUpload-0.1.js"></script>
+{literal}
+<style>
+	#container { 
+		width: 840px; 
+	}
+	.image { 
+		width:75px;
+		height:75px;
+		float:left;
+		position:relative; 
+		margin: 5px;
+		cursor: pointer;
+	}
+	a.delete { 
+		display:none;
+		position:absolute;
+		bottom:0;
+		right:0;
+		width:32px;
+		height:32px;
+		text-indent:-999px;
+		background-image:url(templates/img/ico-eliminar-foto.png);
+	}
+	.image:hover a.delete { 
+		display:block; 
+	}	
+</style>
+<script>
+	var imgOrder = '';	
+
+	$(function() {
+  		$("#container").sortable({
+			update: function(event, ui) {
+	  			imgOrder = $("#container").sortable('toArray').toString();
+			}
+		});
+		$("#container").disableSelection();
+	});		
+	
+	function prepararBorrados(){
+		$('a.delete').on('click', function(e){
+			e.preventDefault();
+			imageID = $(this).closest('.image')[0].id;
+			if(confirm("¿Está seguro de eliminar la foto seleccionada?")){
+				document.getElementById("container").innerHTML = "<img src=\"templates/img/spinner.gif\" />";
+				xajax_eliminarFoto(document.getElementById("id_feria_evento").value, imageID);
+			}
+		});	
+	}
+
+	$(document).ready(function(){
+		prepararBorrados();
+		
+		$("#btGrabar").click(function(){
+			document.getElementById("orden").value = imgOrder;
+			document.getElementById("subefoto").value = "";
+			document.forms["frmGaleria"].submit();
+		});
+		
+		$("#fotonueva").change(function(){
+			if(document.getElementById("fotonueva").value != ""){
+				document.getElementById("subefoto").value = "S";
+				document.forms["frmGaleria"].submit();
+			}
+		});
+	});
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmGaleria">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<th>Subir nueva foto</th>
+        <tr>
+        	<td align="left">
+            	<input type="file" name="fotonueva" id="fotonueva" size="90" />
+            </td>
+        </tr>
+        <tr>
+        	<td height="10px"></td>
+        </tr>
+        <tr>
+			<td valign="top" align="left">
+            	<div id="container">
+                	{section name=linea loop=$FOTOS}
+                    <div class="image" id="{$FOTOS[linea].archivo}" style="background-image:url({$FOTOS[linea].url});">
+                        <a href="#" class="delete">
+                        	<img src="templates/img/ico-lst-eliminar.gif" />
+                        </a>
+                    </div>
+                    {/section}
+                    <div class="clear"></div>
+                </div>
+			</td>
+		<tr>
+	</table>
+    <input type="hidden" name="orden" id="orden" />
+    <input type="hidden" name="subefoto" id="subefoto" />
+	<input type="hidden" name="error" value="{$error}" id="error">
+	<input type="hidden" name="id_feria_evento" id="id_feria_evento" value="{$id_feria_evento}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.getElementById("error").value != "")
+		alert(document.getElementById("error").value);
+</script>
+{/literal}

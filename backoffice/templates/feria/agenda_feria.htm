@@ -1,0 +1,111 @@
+﻿{literal}
+<script>
+	
+	function prepararEdicion(id, nom, fecha, hora, dsc){
+		document.getElementById("id_feria_actividad").value = id;
+		document.getElementById("nombre").value = nom;
+		
+		var partesFecha = fecha.split("-");
+		document.getElementById("fechaDay").value = 1*(partesFecha[2]);
+		document.getElementById("fechaMonth").value = 1*(partesFecha[1]);
+		document.getElementById("fechaYear").value = 1*(partesFecha[0]);
+		
+		var partesHora = hora.split(":");
+		document.getElementById("horaHour").value = partesHora[0];
+		document.getElementById("horaMinute").value = partesHora[1];
+		document.getElementById("descripcion").innerHTML = dsc;
+	}
+	
+	function eliminar(id){
+		if(confirm("¿Está seguro de querer eliminar la actividad seleccionada?")){
+			var idEvento = document.getElementById("id_feria_evento").value;
+			xajax_eliminarActividad(idEvento, id);
+			MostrarSpinner("container");
+		}
+	}
+
+	$(document).ready(function(){
+		//prepararBorrados();		
+		/*
+		$("#btGrabar").click(function(){
+			document.getElementById("orden").value = imgOrder;
+			document.getElementById("subevideo").value = "";
+			document.forms["frmActividades"].submit();
+		});*/
+		
+		$("#btGuardarActividad").click(function(){
+			var nom = document.getElementById("nombre").value;
+			var errores = "";
+			if(trim(nom) == ""){
+				errores += "Ingrese el nombre de la actividad.\n";
+			}
+			if(errores == ""){
+				document.getElementById("salva_actividad").value = "S";
+				document.forms["frmActividades"].submit();
+			}
+			else{
+				alert(errores);
+			}
+		});
+	});
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmActividades">	
+	{$NAVEGADOR}
+	<div class="celda-campo">
+		<div class="tit-campo">Nombre de la actividad</div>
+		<input type="text" name="nombre" id="nombre" size="30" />
+	</div>
+	<div class="celda-campo">
+		<div class="tit-campo">Fecha</div>
+		{html_select_date 
+        	prefix=fecha
+            field_order=DMY 
+            month_format='%m' 
+            time=$fecha 
+            start_year=$a_inicio 
+            end_year=$a_fin 
+            day_extra="id=fechaDay" 
+            month_extra="id=fechaMonth"
+            year_extra="id=fechaYear" 
+        }
+	</div>
+    <div class="celda-campo">
+		<div class="tit-campo">Hora de inicio</div>
+		{html_select_time 
+        	time=$hora 
+            display_seconds=false 
+            prefix=hora 
+            minute_extra="id=horaMinute" 
+            hour_extra="id=horaHour"
+		}
+	</div>
+    <div class="clear"></div>
+    <div class="celda-campo">
+		<div class="tit-campo">Descripción</div>
+		<textarea name="descripcion" id="descripcion" rows="3" cols="73"></textarea>
+	</div>
+    <div class="clear"></div>
+	<div class="celda-campo">
+		<div class="tit-campo">&nbsp;</div>
+		<div class="button" style="position: relative;" id="btGuardarActividad"><b>Guardar la actividad</b></div>
+	</div>
+	<div class="clear" style="height: 20px;"></div>
+	<div class="clear">
+		<div id="container">
+			{$ACTIVIDADES}
+			<div class="clear"></div>
+		</div>
+	</div>
+    <input type="hidden" name="orden" id="orden" />
+    <input type="hidden" name="salva_actividad" id="salva_actividad" />
+	<input type="hidden" name="error" value="{$error}" id="error">
+	<input type="hidden" name="id_feria_evento" id="id_feria_evento" value="{$id_feria_evento}">
+    <input type="hidden" name="id_feria_actividad" id="id_feria_actividad">
+</form>
+{literal}
+<script language="javascript">
+	if (document.getElementById("error").value != "")
+		alert(document.getElementById("error").value);
+</script>
+{/literal}

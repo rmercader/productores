@@ -1,0 +1,24 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+    	<td align="center" class="nivel01">Nombre</td>
+		<td align="center" class="nivel01">Apellido</td>
+		<td align="center" class="nivel01">Matr&iacute;cula</td>
+		<td align="center" class="nivel01">Sucursal</td>
+        <td align="center" class="nivel01">Admitido</td>
+        <td align="center" class="nivel01">Activo</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02">{$REG[linea].nombre}</td>
+        <td align="left" class="nivel02">{$REG[linea].apellido}</td>
+        <td align="left" class="nivel02">{$REG[linea].matricula}</td>
+        <td align="left" class="nivel02">{$REG[linea].dsc_sucursal}</td>
+        <td align="left" class="nivel02">{$REG[linea].dsc_admitido}</td>
+        <td align="left" class="nivel02">{$REG[linea].dsc_activo}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">
+			{include file="base_accion_grid.htm"}
+		</td>
+	</tr>
+	{/section}
+</table>

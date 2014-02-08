@@ -1,0 +1,47 @@
+{include file="menu-feria.htm"}
+<br /><br /><br />
+{literal}
+<style>
+code {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif}
+
+#options {width:600px; margin:20px auto; text-align:right; color:#689e00}
+#options a {text-decoration:none; color:#689e00}
+#options a:hover {color:#314b02}
+
+#acc {width:600px; list-style:none; color:#033; margin:0 auto 40px}
+#acc h3 {width:586px; color: #314b02; border:1px solid #689e00; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/header.gif)}
+#acc h3:hover {background:url(images/header_over.gif)}
+#acc .acc-section {overflow:hidden; background:#fff}
+#acc .acc-content {width:568px; padding:15px; border:1px solid #689e00; border-top:none; background:#fff}
+
+#nested {width:425px; list-style:none; color:#033; margin-bottom:15px}
+#nested h3 {width:411px; border:1px solid #9ac1c9; padding:6px 6px 8px; font-weight:bold; margin-top:5px; cursor:pointer; background:url(images/header.gif)}
+#nested h3:hover {background:url(images/header_over.gif)}
+#nested .acc-section {overflow:hidden; background:#fff}
+#nested .acc-content {width:393px; padding:15px; border:1px solid #9ac1c9; border-top:none; background:#fff}
+#nested .acc-selected {background:url(images/header_over.gif)}
+</style>
+{/literal}
+<div id="contenedor_agenda">
+	<div class="titulos_grande title_agenda">Preguntas más frecuentes</div>
+    <div id="options">
+        <a href="javascript:parentAccordion.pr(1)">Exandir todas</a> | <a href="javascript:parentAccordion.pr(-1)">Contraer todas</a>
+    </div>
+    <ul class="acc" id="acc">
+    {section name=linea loop=$FAQS}
+    	<li>
+        	<h3>{$FAQS[linea].numero} - ¿{$FAQS[linea].pregunta}?</h3>
+            <div class="acc-section">
+            	<div class="acc-content">{$FAQS[linea].respuesta}</div>
+            </div>
+        </li>
+    {/section}
+    </ul>
+</div>
+{literal}
+<script type="text/javascript" src="Scripts/tinyaccordion.js"></script>
+<script type="text/javascript">
+	var parentAccordion=new TINY.accordion.slider("parentAccordion");
+	parentAccordion.init("acc", "h3" , 0);
+</script>
+{/literal}

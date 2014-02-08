@@ -1,0 +1,24 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" class="nivel01">Id.</td>
+		<td align="center" width="15%" class="nivel01">Categor&iacute;a</td>
+		<td align="center" class="nivel01">T&iacute;tulo</td>
+        <td align="center" class="nivel01">Cabezal</td>
+        <td align="center" class="nivel01">Índice</td>
+        <td align="center" class="nivel01">Home</td>
+        <td align="center" class="nivel01">Sección</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02" valign="top">{$REG[linea].id}</td>
+		<td align="center" class="nivel02" valign="top">{$REG[linea].nombre_categoria_novedad}</td>
+		<td align="left" class="nivel02" nowrap="nowrap" valign="top">{$REG[linea].titulo}</td>
+        <td align="left" class="nivel02">{$REG[linea].cabezal}</td>
+        <td align="left" class="nivel02" valign="top">{$REG[linea].ordinal}</td>
+        <td align="left" class="nivel02" valign="top">{$REG[linea].home}</td>
+        <td align="left" class="nivel02" valign="top">{$REG[linea].seccion}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>

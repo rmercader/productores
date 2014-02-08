@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Prolesa - Sitio de Administraci&oacute;n</title>
+<meta HTTP-EQUIV="CONTENT-TYPE" content="text/html; charset=ISO-8859-15" >
+<meta name="CONTENT-TYPE" content="text/html; charset=ISO-8859-15" >
+<meta name="Description" content="">
+<meta name="Keywords" content="">
+<link href="templates/src/estilos.css" rel="stylesheet" type="text/css" media="screen">
+<link href="templates/src/menues.css" rel="stylesheet" type="text/css" media="screen">
+<script language="javascript" src="templates/src/jscripts.js"></script>
+<script language="javascript" src="templates/src/jquery.js"></script>
+<script language="javascript" src="templates/src/menues.js"></script>
+<script language="javascript" src="templates/src/keypress_validation.js"></script>
+</head>
+<body bgcolor="white" background="templates/img/pg_fnd.gif" style="background-repeat:repeat-x;" onLoad="window.defaultStatus='Sitio Administrativo';">
+<table width="100%" id="cien1" border="0">
+<form action="{$SCRIPTFRM}" method="post" enctype="multipart/form-data" name="frmIngreso">
+	<tr>
+		<td height="10%">&nbsp;</td>
+	</tr>
+	<tr>
+		<td height="40%" align="center" valign="top">
+		<table width="300" height="200" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td width="39"  height="108"><img src="templates/img/ing_esq_sup_izq.gif" width="39"  height="108" /></td>
+				<td width="284" height="108"><img src="templates/img/ing_img_sup.gif" width="284" height="108"/></td>
+				<td width="42"  height="108"><img src="templates/img/ing_esq_sup_der.gif" width="42"  height="108" /></td>
+			</tr>
+			<tr>
+				<td width="39"  height="86"><img src="templates/img/ing_img_izq.gif" width="39"  height="86" /></td>
+				<td width="284" height="86" background="templates/img/ing_img_centro.gif" align="center">
+				<table width="100%">
+					<tr>
+						<td align="center"><input type="input" name="LOGIN" id="LOGIN" title="usuario" size="15" maxlength="15" /></td>
+					</tr>
+					<tr>
+						<td align="center"><input type="password" name="PASS" id="PASS" title="clave" size="15" maxlength="15" /></td>
+					</tr>
+				</table>
+				</td>
+				<td width="42"  height="86"><img src="templates/img/ing_img_der.gif" width="42"  height="86" /></td>
+			</tr>
+			<tr>
+				<td width="39"  height="52"><img src="templates/img/ing_esq_inf_izq.gif" /></td>
+				<td width="284" height="52" background="templates/img/ing_img_inf.gif" align="center">
+                	<input type="image" src="templates/img/btn-iniciar-sesion.png" border="0" class="nada" />
+                </td>
+				<td width="42"  height="52"><img src="templates/img/ing_esq_inf_der.gif" /></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="33">&nbsp;</td>
+	</tr>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+</form>
+<script language="javascript">
+if (document.forms["frmIngreso"].elements["ERROR"].value != "")
+		alert(document.forms["frmIngreso"].elements["ERROR"].value);
+document.forms["frmIngreso"].elements["LOGIN"].focus();
+</script>
+</table>
+</body>
+</html>

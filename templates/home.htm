@@ -1,0 +1,201 @@
+<link rel="stylesheet" type="text/css" href="css/buscador.css">
+<br />
+<form id="frmBusqueda" name="frmBusqueda" action="busqueda.php" method="post" enctype="multipart/form-data">
+<div id="busqueda-bloque">
+    <div id="spot-title"><img src="images/dingui-danga.jpg" />
+        <h2> Búsqueda en Prolesa </h2>
+    </div>
+    <div id="spot-buscador"> 
+        <input id="buscinput" name="txtBusqueda" placeholder="Ingrese en esta casilla lo que desea buscar..." type="text" /> 
+        <input id="boton" type="image" src="images/button-search.png" />
+    </div>
+</div>
+</form>
+<br />
+<table width="615" border="0" cellspacing="0" cellpadding="0">
+<tr>
+   	<td height="500" align="left" valign="top" bgcolor="#FFFFFF">
+       	<table width="615" border="0" cellspacing="0" cellpadding="0">
+   		<tr>
+      		<td width="615" height="500" align="left" valign="top">
+              	<table width="615" border="0" cellspacing="0" cellpadding="0">
+   				<tr>
+       				<td width="300" align="left" valign="top">
+                       	{if $mostrar_1 == 'S'}
+                        <table width="300" border="0" cellspacing="0" cellpadding="0">
+   						<tr>
+                			<td height="15" colspan="2" align="left" valign="top" class="titulos_home">{$titulo_novedad_1}</td>
+              			</tr>
+              			<tr>
+                			<td height="10" colspan="2" align="left" valign="top"></td>
+              			</tr>
+              			<tr>
+                			<td colspan="2" align="left" valign="top">
+                            	<img src="{$url_img_1}" width="300" height="138" />
+                            </td>
+              			</tr>
+              			<tr>
+                        	<td height="10" colspan="2" align="left" valign="top"></td>
+                    	</tr>
+                        <tr>
+                        	<td align="left" valign="top" class="noticias_menores2">{$cab_novedad_1}</td>
+                        </tr>
+            			</table>
+                        {/if}
+					</td>
+            		<td width="15" align="left" valign="top" class="linea_vertical"></td>
+            		<td width="300" align="left" valign="top">
+                    	{if $mostrar_2 == 'S'}
+                    	<table width="300" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                        	<td height="15" align="left" valign="top" class="titulos_home">{$titulo_novedad_2}</td>
+                        </tr>
+                        <tr>
+                        	<td height="10" align="left" valign="top"></td>
+                        </tr>
+                        <tr>
+                        	<td align="left" valign="top"><img src="{$url_img_2}" width="300" height="138" /></td>
+                        </tr>
+                        <tr>
+                        	<td height="10" align="left" valign="top"></td>
+                        </tr>
+                        <tr>
+                        	<td align="left" valign="top" class="noticias_menores2">{$cab_novedad_2}</td>
+                        </tr>
+                        </table>
+                        {/if}
+            		</td>
+          		</tr>
+                <tr>
+                	<td height="15px">&nbsp;</td>
+                    <td width="15" align="left" valign="top" class="linea_vertical"></td>
+                    <td height="15px">&nbsp;</td>
+                </tr>
+                <tr>
+                	<td align="left" valign="top">
+                        {if $mostrar_1 == 'S'}
+                        <a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$id_novedad_1}'{literal}}{/literal})">Leer más</a>
+                        {/if}
+                    </td>
+                    <td width="15" align="left" valign="top" class="linea_vertical"></td>
+                    <td align="left" valign="top">
+                        {if $mostrar_2 == 'S'}
+                        <a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$id_novedad_2}'{literal}}{/literal})">Leer más</a>
+                        {/if}
+                    </td>
+                </tr>
+                {if $mostrar_3 == 'S'}
+                <tr>
+                	<td colspan="3" class="linea_horizontal" width="100%">&nbsp;</td>
+                </tr>
+                {/if}
+                <tr>
+       				<td width="300" align="left" valign="top">
+                    	{if $mostrar_3 == 'S'}
+                       	<table width="300" border="0" cellspacing="0" cellpadding="0">
+   						<tr>
+                			<td height="15" colspan="2" align="left" valign="top" class="titulos_home">{$titulo_novedad_3}</td>
+              			</tr>
+              			<tr>
+                			<td height="10" colspan="2" align="left" valign="top"></td>
+              			</tr>
+              			<tr>
+                			<td colspan="2" align="left" valign="top">
+                            	<img src="{$url_img_3}" width="300" height="138" />
+                            </td>
+              			</tr>
+              			<tr>
+                        	<td height="10" colspan="2" align="left" valign="top"></td>
+                    	</tr>
+                        <tr>
+                        	<td align="left" valign="top" class="noticias_menores2">{$cab_novedad_3}</td>
+                        </tr>
+                        </table>
+                        {/if}
+					</td>
+            		<td width="15" align="left" valign="top" class="linea_vertical"></td>
+            		<td width="300" align="left" valign="top">
+                    	{if $mostrar_4 == 'S'}
+                    	<table width="300" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                        	<td height="15" align="left" valign="top" class="titulos_home">{$titulo_novedad_4}</td>
+                        </tr>
+                        <tr>
+                        	<td height="10" align="left" valign="top"></td>
+                        </tr>
+                        <tr>
+                        	<td align="left" valign="top"><img src="{$url_img_4}" width="300" height="138" /></td>
+                        </tr>
+                        <tr>
+                        	<td height="10" align="left" valign="top"></td>
+                        </tr>
+                        <tr>
+                        	<td align="left" valign="top" class="noticias_menores2">{$cab_novedad_4}</td>
+                        </tr> 
+                        </table>
+                        {/if}
+            		</td>
+          		</tr>
+                <tr>
+                	<td height="15px">&nbsp;</td>
+                    <td width="15" align="left" valign="top" class="linea_vertical"></td>
+                    <td height="15px">&nbsp;</td>
+                </tr>
+                <tr>
+                	<td align="left" valign="top">
+                        {if $mostrar_3 == 'S'}
+                        <a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$id_novedad_3}'{literal}}{/literal})">Leer más</a>
+                        {/if}
+                    </td>
+                    <td width="15" align="left" valign="top" class="linea_vertical"></td>
+                    <td align="left" valign="top">
+                        {if $mostrar_4 == 'S'}
+                        <a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$id_novedad_4}'{literal}}{/literal})">Leer más</a>
+                        {/if}
+                    </td>
+                </tr>
+                {if $mostrar_3 == 'S'}
+                <tr>
+                	<td colspan="3" class="linea_horizontal" width="100%">&nbsp;</td>
+                </tr>
+                {/if}
+        		</table>
+          		
+          		<br />
+                <table width="90%">
+                	{section name=linea loop=$NOVS}
+                	<tr>
+                        <td width="20" align="left" valign="middle" class="icono_flechita">&nbsp;</td>
+                        <td align="left" valign="middle" class="noticias_menores">
+                        	<a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$NOVS[linea].id_novedad}'{literal}}{/literal})">{$NOVS[linea].titulo}
+                            </a>
+                        </td>
+                    </tr>
+                    {/section}
+                </table>
+			</td>
+    	</tr>
+    	</table>
+    </td>
+</tr>
+</table>
+<script language="javascript" src="Scripts/tinybox.js"></script>
+{literal}
+<script type="text/javascript">
+    if(typeof swfobject !== "undefined"){
+        swfobject.registerObject("FlashID");
+    }
+
+    $(document).ready(function(){
+
+        $("#boton").click(function(){
+            var txtBus = $.trim($("#buscinput").val());
+            if(txtBus == '' || txtBus.length < 3){
+                alert('Ingrese algún texto en la casilla de búsqueda, de al menos tres caracteres.');
+                return false;
+            }
+        });
+
+    });
+</script>
+{/literal}

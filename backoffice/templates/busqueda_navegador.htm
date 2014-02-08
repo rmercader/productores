@@ -1,0 +1,13 @@
+<table height="40" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="28"><a href="{$SCRIPT_PRI}"><img src="html/estilo01/img/btn_primero.gif" alt="Primera p&aacute;gina" name="btPrimero" border="0" title="Ir a la primer p&aacute;gina"></a></td>
+    <td width="28"><a href="{$SCRIPT_ANT}"><img src="html/estilo01/img/btn_anterior.gif" alt="P&aacute;gina anterior" name="btAnterior" border="0" title="Ir a la p&aacute;gina anterior"></a></td>
+	<td width="30"><select name="CBPAGINA" onchange="document.frmGRID.submit();">
+			{html_options values=$CBPAGINA_ID selected=$PAGACT output=$CBPAGINA_ID}
+			</select>
+	</td>
+    <td width="28"><a href="{$SCRIPT_SIG}"><img src="html/estilo01/img/btn_siguiente.gif" alt="P&aacute;gina siguiente" name="btSiguiente" border="0" title="Ir a la p&aacute;gina siguiente"></a></td>
+    <td width="28"><a href="{$SCRIPT_ULT}"><img src="html/estilo01/img/btn_ultimo.gif" alt="Ultima p&aacute;gina" name="btUltimo" border="0" title="Ir a la &uacute;ltima p&aacute;gina"></a></td>
+    <td width="28"><a href="javascript:;" onclick="self.close();"><img src="html/estilo01/img/btn_apagar.gif" alt="Cerrar" name="btSalir" border="0"></a></td>
+  </tr>
+</table>

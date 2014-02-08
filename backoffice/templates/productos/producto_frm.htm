@@ -1,0 +1,83 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	if(errores != ""){
+		alert("No es posible ingresar el producto:\n"+errores);
+	}
+	else{
+		document.forms["frmProducto"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmProducto" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="99%" cellpadding="2" cellspacing="2">
+					<tr>
+                    	<th align="left">Nombre</th>
+                        <th align="left">C&oacute;digo SAP</th>
+                        <th align="left">Categor&iacute;a</th>
+						<th align="left">Visible en el sitio</th>
+					</tr>
+					<tr>	
+						<td align="left" width="300px">
+							<input type="text" name="nombre_producto" size="60" value="{$nombre_producto}" {$SOLO_LECTURA}>
+                        </td>
+                        <td align="left">
+							<input type="text" name="codigo_sapp" size="10" value="{$codigo_sapp}" {$SOLO_LECTURA}>
+                        </td>
+                        <td align="left">
+                        {if $SOLO_LECTURA != ''}
+		                    <input type="text" name="categoria_producto_txt" size="60" value="{$categoria_producto_txt}" 
+                            	readonly="readonly">
+                        {else}
+                        	<select name="id_categoria_producto" id="id_categoria_producto">
+                                {html_options values=$categoria_producto_id selected=$id_categoria_producto output=$categoria_producto_nom}
+                            </select>
+                        {/if}
+                    	</td>
+                        <td align="left" width="99%">
+							<input type="checkbox" name="visible" {$visible}>
+						</td>
+					</tr>
+					<tr>
+						<th align="left" colspan="4">Descripci&oacute;n</th>
+					</tr>
+					<tr>	
+						<td align="left" colspan="4">
+							{$DESCRIPCION}
+						</td>
+					</tr>
+                    <tr>
+						<th align="left" colspan="4">Imagen {if $SOLO_LECTURA == ''}(Menos de 500 KB){/if}</th>
+					</tr>
+					<tr>
+						<td align="left" colspan="4">
+							{if $SOLO_LECTURA == ''}
+							<input type="file" name="IMAGEN_1" size="90">&nbsp;
+							{else}
+							<img src="{$SRC_IMAGEN}" border="0" alt="">
+							{/if}
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_producto" value="{$id_producto}">
+	<input type="hidden" name="CANTIDAD_IMAGENES" value="{$CANTIDAD_IMAGENES}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmProducto"].elements["ERROR"].value != "")
+		alert(document.forms["frmProducto"].elements["ERROR"].value);
+</script>
+{/literal}

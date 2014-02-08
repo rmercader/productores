@@ -1,0 +1,68 @@
+{literal}
+<script language="javascript">
+
+function procesar(){
+	var strIDs = ""
+	var lista = document.forms["CANTIDAD_CATEGORIAS"].elements["ORDENACION"];
+  for (var i=0; i < lista.options.length; i++){
+  	strIDs += lista.options[i].value + "#" + (i+1) + "|";
+  }
+	
+	document.forms["CANTIDAD_CATEGORIAS"].elements["MEJUNJE_ORDENADO"].value = strIDs;
+	document.forms["CANTIDAD_CATEGORIAS"].submit();
+}
+
+function mover(f, bDir, sName) {
+	var el = f.elements["ORDENACION"];
+	var idx = el.selectedIndex;
+	if (idx == -1) 
+		alert("Debe seleccionar primero un item.");
+	else {
+		var nxidx = idx + ( bDir? -1 : 1);
+		if (nxidx < 0) nxidx = el.length - 1;
+		if (nxidx >= el.length) nxidx = 0;
+		var oldVal = el[idx].value;
+		var oldText = el[idx].text;
+		el[idx].value = el[nxidx].value;
+		el[idx].text = el[nxidx].text;
+		el[nxidx].value = oldVal;
+		el[nxidx].text = oldText;
+		el.selectedIndex = nxidx;
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="CANTIDAD_CATEGORIAS" onsubmit="procesar(); return false;">
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td align="center">
+				<INPUT TYPE=button VALUE="Mover Arriba" ONCLICK="mover(this.form, true, '{$MEJUNJE_ORDENADO}')">
+			</td>
+		<tr>	
+		<tr>
+			<td align="center">
+				<select name="ORDENACION" size="{$CANTIDAD_CATEGORIAS}">
+				{section name=linea loop=$CATEGORIAS}
+					<option value="{$CATEGORIAS[linea].id_categoria_novedad}"{$CATEGORIAS[linea].selected}>{$CATEGORIAS[linea].nombre}
+				{/section}
+				</select>
+			</td>
+		<tr>
+		<tr>
+			<td align="center">
+				<INPUT TYPE=button VALUE="Mover Abajo" ONCLICK="mover(this.form, false, '{$MEJUNJE_ORDENADO}')">
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="MEJUNJE_ORDENADO" value="">
+	<input type="hidden" value="{$CANTIDAD_CATEGORIAS}" name="CANTIDAD_CATEGORIAS">
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["CANTIDAD_CATEGORIAS"].elements["ERROR"].value != "")
+		alert(document.forms["CANTIDAD_CATEGORIAS"].elements["ERROR"].value);
+</script>
+{/literal}

@@ -1,0 +1,20 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" width="15%" class="nivel01">Identificador</td>
+		<td align="center" class="nivel01">Nombre</td>
+        <td align="center" class="nivel01">Lugar</td>
+        <td align="center" class="nivel01">Sucursal</td>
+		<td width="150" align="center" class="nivel01">Fecha</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02" width="60px">{$REG[linea].id}</td>		
+		<td align="left" class="nivel02" width="400px">{$REG[linea].nombre_evento}</td>
+        <td align="left" class="nivel02" width="300px">{$REG[linea].lugar}</td>
+        <td align="left" class="nivel02" nowrap="nowrap">{$REG[linea].sucursal}</td>
+        <td width="200" align="center" class="nivel02">{$REG[linea].fecha_disp}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>

@@ -1,0 +1,29 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" width="15%" class="nivel01">Identificador</td>
+		<td align="center" class="nivel01">Fecha de inicio</td>
+        <td align="center" class="nivel01">Fecha de fin</td>
+        <td align="center" class="nivel01">Lugar</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02" width="60px">{$REG[linea].id}</td>		
+		<td align="left" class="nivel02">{$REG[linea].fecha_inicio_dsc}</td>
+        <td align="left" class="nivel02">{$REG[linea].fecha_fin_dsc}</td>
+        <td align="left" class="nivel02">{$REG[linea].lugar}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">
+        	{include file="base_accion_grid.htm"}
+            <a href="admin_feria.php?MOD=fotos_feria&COD={$REG[linea].id}" title="Administrar fotos">
+                <img src="templates/img/ico-lst-fotos.png" alt="Administrar fotos" border="0" hspace="2">
+            </a>
+            <a href="admin_feria.php?MOD=videos_feria&COD={$REG[linea].id}" title="Administrar videos">
+                <img src="templates/img/ico-lst-videos.gif" alt="Administrar videos" border="0" hspace="2">
+            </a>
+            <a href="admin_feria.php?MOD=agenda_feria&COD={$REG[linea].id}" title="Administrar agenda de actividades">
+                <img src="templates/img/ico-lst-agenda.gif" alt="Administrar agenda de actividades" border="0" hspace="2">
+            </a>
+        </td>
+	</tr>
+	{/section}
+</table>

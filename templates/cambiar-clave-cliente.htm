@@ -1,0 +1,97 @@
+{literal}
+<script language="javascript">
+	function onSubmitFrm(){
+		var errores = "";
+		
+		var clave = document.getElementById("clave").value;
+		var claveConf = document.getElementById("clavecnf").value;
+		if(clave != claveConf){
+			errores += "\t- La contrase\u00f1a y su confirmaci\u00f3n no coinciden.\n";	
+		}
+		
+		if(errores != "")
+		{
+			alert("No se puede completar el registro:\n"+errores);	
+		}
+		else {
+			document.frmCambiarClave.submit();
+		}
+	}
+</script>
+{/literal}
+<br />
+<table>
+<tr>
+    <td align="left" valign="top" class="titulos_grande">Cambio de clave</td>
+</tr>
+<tr>
+    <td width="630px" align="center">
+        <table>
+            <tr>
+                <th align="left" valign="top" width="450px">&nbsp;</th>
+                <td align="right" valign="top">
+                    <a href="area-clientes.php" style="color: #669D00; font-weight: bold;">Volver</a>
+                </td>
+                <td align="right" valign="top">
+                    <a href="cerrar-sesion-cliente.php" style="color: #669D00; font-weight: bold;">Cerrar sesi&oacute;n</a>
+                </td>
+            </tr>
+        </table>
+    </td>
+</tr>
+</table>
+<br />
+<form method="post" action="" enctype="multipart/form-data" name="frmCambiarClave" onsubmit="onSubmitFrm(); return false;">
+<table width="470">
+    <tr>
+        <th align="left"><span class="destacado_txt">Contrase&ntilde;a actual:</span></th>
+    </tr>
+    <tr>
+        <td width="220" align="left">
+            <input type="password" name="claveant" id="claveant" value="{$claveant}" class="campo-texto" />
+            <span class="destacado_txt">*</span>
+        </td>
+    </tr>    
+    <tr>
+        <th align="left"><span class="destacado_txt">Contrase&ntilde;a nueva:</span></th>
+    </tr>
+    <tr>
+        <td width="220" align="left">
+            <input type="password" name="clave" id="clave" value="{$clave}" class="campo-texto" /> <span class="destacado_txt">*</span>
+        </td>    
+    </tr>
+    <tr>
+    	<th align="left"><span class="destacado_txt">Confirmaci&oacute;n de contrase&ntilde;a nueva:</span></th>
+    </tr>
+        <td align="left">    
+            <input type="password" name="clavecnf" id="clavecnf" value="{$clavecnf}" class="campo-texto" /> <span class="destacado_txt">*</span>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" colspan="2" height="20px"><span class="destacado_txt">(*) Campos requeridos</span></th>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <input type="image" src="pics/bot_enviar.jpg" title="Enviar datos para registrarse" />
+        </td>
+    </tr>
+</table>
+	<!--<input type="hidden" id="error" name="error" value="{$error}" />
+	<input type="hidden" id="exito" name="exito" value="{$exito}" />-->
+</form>
+<div id="divErrores" style="display: none;">{$error}</div>
+<div id="divExitos" style="display: none;">{$exito}</div>
+<br />
+{if $error != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divErrores").innerHTML});
+</script>
+{/literal}
+{elseif $exito != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divExitos").innerHTML});
+</script>
+{/literal}
+{/if}

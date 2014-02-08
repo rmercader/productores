@@ -1,0 +1,99 @@
+{literal}
+<script language="javascript">
+	function onSubmitFrm(){
+		var matricula = document.getElementById("matricula").value;
+		if(matricula == ""){
+			alert("Debe ingresar su matr\u00edcula.");	
+		}
+		else {
+			document.getElementById("accion").value = "login";
+			document.frmIngresoClientes.submit();
+		}
+	}
+	
+	function olvidoClave(){
+		var matricula = document.getElementById("matricula").value;
+		if(matricula == ""){
+			alert("Debe ingresar la matr\u00edcula con la cual se ha registrado.");	
+		}
+		else {
+			document.getElementById("accion").value = "olvido";
+			document.frmIngresoClientes.submit();
+		}
+	}
+	
+</script>
+{/literal}
+<br />
+<table>
+<tr>
+    <td align="left" valign="top" class="titulos_grande">Ingreso de clientes</td>
+</tr>
+</table>
+<br />
+<form method="post" action="" enctype="multipart/form-data" name="frmIngresoClientes" onsubmit="onSubmitFrm(); return false;">
+<table width="444">
+	<tr>
+    	<td align="left">
+        	Bienvenido/a, <br />
+			Si usted ya está registrado ingrese aquí:<br /><br />
+            &nbsp;&nbsp;<b>Matricula/Cliente<br />
+			&nbsp;&nbsp;Contraseña</b>,<br /><br />
+
+            y haga click en Iniciar sesión.
+            <br /><br />
+
+        </td>
+    </tr>
+	<tr>
+        <th align="left"><span class="destacado_txt">Matr&iacute;cula/Cliente:</span></th>
+    </tr>
+    <tr>
+        <td align="left">
+            <input type="text" name="matricula" id="matricula" value="{$matricula}" class="campo-texto" />
+        </td>
+    </tr>
+    <tr>
+        <th align="left"><span class="destacado_txt">Contrase&ntilde;a:</span></th>
+    </tr>
+    <tr>
+        <td width="250" align="left">
+            <input type="password" name="clave" id="clave" value="{$clave}" class="campo-texto" />
+        </td>
+    </tr>
+    <tr>
+        <td align="left">
+            <input type="image" src="pics/btn-iniciar-sesion.png" alt="Iniciar sesi&oacute;n" title="Iniciar sesi&oacute;n" />&nbsp;
+            <a href="registro-clientes.php">
+            	<img border="0" src="pics/btn-registro.png" alt="Registro" title="Registrarse como cliente"/>
+            </a>
+        </td>
+    </tr>
+    <tr>
+      <td align="left">&nbsp;</td>
+    </tr>
+    <tr>
+        <th align="left"><span class="destacado_txt"><a href="javascript: olvidoClave();" style="color: #669D00; font-weight: bold;">Olvid&eacute; mi contrase&ntilde;a</a></span></th>
+    </tr>
+    <tr>
+    	<td>Si usted no se ha registrado aún, regístrese haciendo click en el botón <b>registro</b>.</td>
+    </tr>
+</table>
+<input type="hidden" name="accion" id="accion" />
+</form>
+<div id="divErrores" style="display: none;">{$error}</div>
+<div id="divExitos" style="display: none;">{$exito}</div>
+<br />
+{if $error != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divErrores").innerHTML});
+</script>
+{/literal}
+{elseif $exito != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divExitos").innerHTML});
+</script>
+{/literal}
+{/if}

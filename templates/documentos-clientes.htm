@@ -1,0 +1,31 @@
+<br />
+<table>
+	{include file="header-area-clientes.htm"}
+    <tr><td height="20px"></td></tr>
+    <tr>
+    	<td align="left">
+        	<table border="0" cellpadding="3" cellspacing="0" width="100%">
+            	<tr>
+                	<td colspan="2" align="center" style="background-color: #312780; color: #FFF; font-weight: bold; border: 1px solid #666; border-right: none">Documentos de interés - {$categoria}</td>
+                </tr>
+                {section name=lndoc loop=$documentos}
+                <tr>
+                	<td align="left" valign="middle" width="30px" style="background-color: #F1FDEF; color: #000; font-weight: bold; border: 1px solid #666">
+                    	<img src="{$documentos[lndoc].url_thu}" />
+                    </td>
+                	<td align="left" valign="middle" style="background-color: #F1FDEF; color: #000; font-weight: bold; border: 1px solid #666; border-left: none;">
+                    	<a href="{$documentos[lndoc].url_doc}" style="color: #000;" valign="middle">{$documentos[lndoc].titulo}</a>
+                    </td>
+                </tr>
+                {/section}
+            </table>
+        </td>
+	</tr>
+    <tr>
+    	<td align="left">
+        	<a href="area-clientes.php">
+                <img src="pics/volver.png"  border="0" />
+            </a>
+        </td>
+    </tr>
+</table>

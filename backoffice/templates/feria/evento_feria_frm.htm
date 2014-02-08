@@ -1,0 +1,85 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	var lugar = document.getElementById("lugar").value;
+	if(trim(nombre) == ""){
+		errores += "\t- El campo Lugar es obligatorio.\n";	
+	}
+	var comoLlegar = document.getElementById("como_llegar").value;
+	if(trim(comoLlegar) == ""){
+		errores += "\t- El campo Como llegar es obligatorio.\n";
+	}
+	if(errores != ""){
+		alert("No es posible ingresar el evento:\n"+errores);
+	}
+	else{
+		document.forms["frmEvento"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmEvento" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="99%" cellpadding="2" cellspacing="2">
+					<tr>
+						<th align="left">Fecha de inicio</th>
+                        <th align="left">Fecha de fin</th>
+                        <th align="left">Visible en el sitio</th>
+					</tr>
+					<tr>	
+						<td align="left" width="180px">
+							{html_select_date prefix="fecha_inicio" field_order=DMY time=$fecha_inicio end_year="+10" month_format='%m'}
+						</td>
+                        <td align="left" width="180px">
+							{html_select_date prefix="fecha_fin" field_order=DMY time=$fecha_fin end_year="+10" month_format='%m'}
+						</td>
+                        <td align="left" >
+							<input type="checkbox" name="visible" id="visible" {$visible}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left" colspan="3">Detalles</th>
+					</tr>
+                    <tr>
+						<td align="left" colspan="3">{$DETALLES}</td>
+					</tr>
+                    <tr>
+						<th align="left" colspan="3">Lugar</th>
+					</tr>
+                    <tr>
+						<td align="left" colspan="3">
+                        	<input type="text" name="lugar" id="lugar" size="60" value="{$lugar}" {$SOLO_LECTURA}>
+                        </td>
+					</tr>
+					<tr>
+						<th align="left" colspan="3">Cómo llegar {if $SOLO_LECTURA == ''}(Pegar código HTML generado por google maps. Seleccione 593px de largo x 205px de ancho. <a href="http://maps.google.com/help/maps/getmaps/plot-one.html" target="_blank">Más información</a>){/if}</th>
+					</tr>
+                    <tr>
+						<td align="left" colspan="3">
+                        {if $SOLO_LECTURA == ''}
+                            <textarea id="como_llegar" name="como_llegar" cols="95" rows="8">{$como_llegar}</textarea>
+                        {else}
+                            {$como_llegar}
+                        {/if}    
+                        </td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_feria_evento" id="id_feria_evento" value="{$id_feria_evento}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmEvento"].elements["ERROR"].value != "")
+		alert(document.forms["frmEvento"].elements["ERROR"].value);
+</script>
+{/literal}

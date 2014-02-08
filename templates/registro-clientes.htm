@@ -1,0 +1,247 @@
+{literal}
+<script language="javascript">
+	function onSubmitFrm(){
+		var errores = "";
+		
+		var matricula = document.getElementById("matricula").value;
+		if(matricula == ""){
+			errores += "\t- Debe ingresar su matr\u00edcula/cliente.\n";
+		}
+		
+		var nombre = document.getElementById("nombre").value;
+		if(nombre == ""){
+			errores += "\t- Debe ingresar su nombre.\n";
+		}
+		
+		var apellido = document.getElementById("apellido").value;
+		if(apellido == ""){
+			errores += "\t- Debe ingresar su apellido.\n";
+		}
+		
+		var suc = document.getElementById("id_sucursal").value;
+		if(suc == 0){
+			errores += "\t- Debe ingresar su sucursal de referencia.\n";
+		}
+		
+		var celular = document.getElementById("celular").value;
+		if(celular == ""){
+			errores += "\t- Debe ingresar su n\u00famero de celular.\n";
+		}
+		
+		var email = document.getElementById("email").value;
+		if(email == ""){
+			errores += "\t- Debe ingresar su direcci\u00f3n de correo electr\u00f3nico.\n";
+		}
+		
+		var emailcnf = document.getElementById("emailcnf").value;
+		if(email != emailcnf){
+			errores += "\t- La direcci\u00f3n de correo electr\u00f3nico y su confirmaci\u00f3n no coinciden.\n";
+		}
+		
+		var dpto = document.getElementById("id_departamento").value;
+		if(dpto == 0){
+			errores += "\t- Debe ingresar su departamento.\n";
+		}
+		
+		var dir = document.getElementById("direccion").value;
+		if(dir == ""){
+			errores += "\t- Debe ingresar su direcci\u00f3n.\n";
+		}
+		
+		var clave = document.getElementById("clave").value;
+		var claveConf = document.getElementById("clavecnf").value;
+		if(clave != claveConf){
+			errores += "\t- La contrase\u00f1a y su confirmaci\u00f3n no coinciden.\n";	
+		}
+		
+		if(errores != "")
+		{
+			alert("No se puede completar el registro:\n"+errores);	
+		}
+		else {
+			document.frmRegistroClientes.submit();
+		}
+	}
+</script>
+{/literal}
+<br />
+<table>
+<tr>
+    <td align="left" valign="top" class="titulos_grande">Registro de clientes</td>
+</tr>
+</table>
+<br />
+<form method="post" action="" enctype="multipart/form-data" name="frmRegistroClientes" onsubmit="onSubmitFrm(); return false;">
+{literal}
+<script type="text/javascript">
+	// Elijo otro estilo para el captcha
+	var RecaptchaOptions = {
+		lang : 'es',
+		theme : 'clean'
+	};
+</script>
+{/literal}
+<table width="480">
+	<tr>
+    	<td align="left" colspan="2">
+        	Estimado Cliente, 
+			Solicitamos a usted que se registre, por única vez, completando el siguiente formulario. Un usuario por matrícula. Esta información será de uso confidencial, interno para Prolesa.
+			Una vez enviada su solicitud, la información será chequeada antes de que usted sea admitido. Un email le será enviado informándole que está admitido.
+        </td>
+    </tr>
+    <tr>
+        <th align="center" colspan="2" height="30px"><span class="destacado_txt" style="text-decoration:underline">Datos generales</span></th>
+    </tr>
+    <tr>        
+        <th align="left"><span class="destacado_txt">Nombre:</span></th>
+        <th align="left"><span class="destacado_txt">Apellido:</span></th>
+    </tr>
+    <tr>            
+        <td align="left">
+            <input type="text" name="nombre" id="nombre" value="{$nombre}" class="campo-texto" /> 
+            <span class="destacado_txt">*</span>
+        </td>
+        <td align="left">
+            <input type="text" name="apellido" id="apellido" value="{$apellido}" class="campo-texto" /> 
+            <span class="destacado_txt">*</span>
+        </td>
+    </tr>
+    <tr>        
+        <th align="left"><span class="destacado_txt">Razón social:</span></th>
+        <th align="left"><span class="destacado_txt">Sucursal referencia:</span></th>
+    </tr>
+    <tr>        
+        <td align="left">    
+            <input type="text" name="grupo_economico" id="grupo_economico" value="{$grupo_economico}" class="campo-texto" />
+        </td>
+        <td align="left">
+        	<select name="id_sucursal" id="id_sucursal" style="width: 212px">
+            	{html_options values=$sucursales_ids selected=$id_sucursal output=$sucursales_dsc}
+            </select>
+            <span class="destacado_txt">*</span>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" colspan="2"><span class="destacado_txt">Direcci&oacute;n:</span></th>
+    </tr>
+    <tr>
+        <td align="left" colspan="2">
+            <input type="text" name="direccion" id="direccion" value="{$direccion}" class="campo-texto" style="width: 424px;"/>
+            <span class="destacado_txt">*</span>
+        </td>
+    </tr>
+    <tr>        
+	    <th align="left"><span class="destacado_txt">Departamento:</span></th>
+        <th align="left"><span class="destacado_txt">T&eacute;cnico referencia:</span></th>
+    </tr>
+    <tr>        
+        <td align="left">    
+            <select name="id_departamento" id="id_departamento" style="width: 212px">
+            	{html_options values=$departamentos_ids selected=$id_departamento output=$departamentos_dsc}
+            </select>
+            <span class="destacado_txt">*</span>
+        </td>
+        <td align="left">    
+            <input type="text" name="tecnico" id="tecnico" value="{$tecnico}" class="campo-texto" />
+        </td>
+    </tr>
+    <tr>
+        <th align="left"><span class="destacado_txt">Celular:</span></th>
+        <th align="left"><span class="destacado_txt">Tel&eacute;fono fijo:</span></th>
+    </tr>
+    <tr>
+        <td align="left">
+            <input type="text" name="celular" id="celular" value="{$celular}" class="campo-texto" /> 
+            <span class="destacado_txt">*</span>
+        </td>
+        <td align="left">    
+            <input type="text" name="telefono" id="telefono" value="{$telefono}" class="campo-texto" />
+        </td>
+    </tr>    
+    <tr>
+        <th align="left"><span class="destacado_txt">Correo:</span></th>
+        <th align="left"><span class="destacado_txt">Confirmaci&oacute;n de correo:</span></th>
+    </tr>
+    <tr>
+        <td align="left">
+            <input type="text" name="email" id="email" value="{$email}" class="campo-texto" onpaste="return false" />
+            <span class="destacado_txt">*</span>
+        </td>
+        <td align="left">
+            <input type="text" name="emailcnf" id="emailcnf" value="{$emailcnf}" class="campo-texto" onpaste="return false" />
+            <span class="destacado_txt">*</span>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" height="15px">&nbsp;</td>
+    </tr>   
+    <tr>
+        <th align="center" colspan="2"><span class="destacado_txt" style="text-decoration:underline">Datos de la cuenta de usuario</span></th>
+    </tr>
+    <tr>
+    	<th align="left"><span class="destacado_txt">Matrícula/Cliente:</span></th>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+    	<td align="left">
+            <input type="text" name="matricula" id="matricula" value="{$matricula}" class="campo-texto" /> 
+            <span class="destacado_txt">*</span>
+        </td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <th align="left"><span class="destacado_txt">Contrase&ntilde;a:</span></th>
+        <th align="left"><span class="destacado_txt">Confirmaci&oacute;n de contrase&ntilde;a:</span></th>
+    </tr>
+    <tr>
+        <td width="220" align="left">
+            <input type="password" name="clave" id="clave" value="{$clave}" class="campo-texto" /> <span class="destacado_txt">*</span>
+        </td>    
+        <td align="left">    
+            <input type="password" name="clavecnf" id="clavecnf" value="{$clavecnf}" class="campo-texto" /> <span class="destacado_txt">*</span>
+        </td>
+    </tr> 
+    <tr>
+    	<td colspan="2" height="20px"></td>
+    </tr>
+    <tr>
+        <th align="left" colspan="2">
+        	<p class="destacado_txt">Verificación de seguridad, escriba la palabra que se ve en la imagen:</p>
+        </th>
+    </tr>       
+    <tr>
+        <td align="left" colspan="2">
+            <img id="captcha" src="securimage/securimage_show.php" alt="Imagen de seguridad" />
+            <input type="text" name="captcha_code" size="10" maxlength="6" /> 
+            <span class="destacado_txt">*</span>
+			<a href="#" onclick="document.getElementById('captcha').src = 'securimage/securimage_show.php?' + Math.random(); return false" style="color: #669D00; font-weight: bold;">[ Probar con otra imagen ]</a>
+        </td>
+    </tr>
+    <tr>
+        <th align="left" colspan="2" height="20px"><span class="destacado_txt">(*) Campos requeridos</span></th>
+    </tr>
+    <tr>
+        <td align="center" colspan="2">
+            <input type="image" src="pics/bot_enviar.jpg" title="Enviar datos para registrarse" />
+        </td>
+    </tr>
+</table>
+	<!--<input type="hidden" id="error" name="error" value="{$error}" />
+	<input type="hidden" id="exito" name="exito" value="{$exito}" />-->
+</form>
+<div id="divErrores" style="display: none;">{$error}</div>
+<div id="divExitos" style="display: none;">{$exito}</div>
+<br />
+{if $error != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divErrores").innerHTML});
+</script>
+{/literal}
+{elseif $exito != ""}
+{literal}
+<script language="javascript">
+	TINY.box.show({html: document.getElementById("divExitos").innerHTML});
+</script>
+{/literal}
+{/if}

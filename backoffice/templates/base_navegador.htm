@@ -1,0 +1,14 @@
+<table border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>{if $SCRIPT_ADD != ''}<a href="{$SCRIPT_ADD}"><img src="templates/img/btn-nuevo.png" alt="Agregar registro" title="Agregar registro" name="btAgregar" border="0"></a>{else}<img src="templates/img/transp.gif" width="26" height="17">{/if}</td>
+    <td>{if $SCRIPT_PDF != ''}<a href="{$SCRIPT_PDF}" target="_blank"><img src="templates/img/btn_pdf.gif" alt="Generar archivo PDF" title="Generar archivo PDF" name="btPDF" border="0"></a>{/if}</td>
+    <td width="28"><a href="{$SCRIPT_PRI}"><img src="templates/img/btn-primero.png" alt="Primera p&aacute;ina" name="btPrimero" border="0" title="Ir a la primer p&aacute;gina"></a></td>
+    <td width="28"><a href="{$SCRIPT_ANT}"><img src="templates/img/btn-anterior.png" alt="P&aacute;gina anterior" title="Ir a la p&aacute;gina anterior" name="btAnterior" border="0"></a></td>
+	<td width="30"><select name="CBPAGINA" onchange="document.frmGRID.submit();" style="height: 50px; width: 70px; font-weight: bold; font-size:30px; text-align: center;">
+			{html_options values=$CBPAGINA_ID selected=$PAGACT output=$CBPAGINA_ID}
+			</select>
+	</td>
+    <td width="28"><a href="{$SCRIPT_SIG}"><img src="templates/img/btn-siguiente.png" title="Ir a la p&aacute;gina siguiente" alt="P&aacute;gina siguiente" name="btSiguiente" border="0"></a></td>
+    <td width="28"><a href="{$SCRIPT_ULT}"><img src="templates/img/btn-ultimo.png" title="Ir a la &uacute;ltima p&aacute;gina" alt="Ultima p&aacute;gina" name="btUltimo" border="0"></a></td>
+  </tr>
+</table>

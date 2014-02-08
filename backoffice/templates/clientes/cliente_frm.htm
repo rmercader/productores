@@ -1,0 +1,225 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	var nombre = document.getElementById("nombre").value;
+	if(trim(nombre) == ""){
+		errores += "\t- El campo Nombre es obligatorio.\n";	
+	}
+	
+	var apellido = document.getElementById("apellido").value;
+	if(trim(apellido) == ""){
+		errores += "\t- El campo Apellido es obligatorio.\n";	
+	}
+	
+	var matricula = document.getElementById("matricula").value;
+	if(trim(matricula) == ""){
+		errores += "\t- El campo Matrícula es obligatorio.\n";	
+	}
+	
+	var email = document.getElementById("email").value;
+	if(!checkEmail(email)){
+		errores += "\t- El campo Email debe ser una dirección de correo electrónico válida.\n";	
+	}
+	
+	var celular = document.getElementById("celular").value;
+	if(trim(celular) == ""){
+		errores += "\t- El campo Celular es obligatorio.\n";	
+	}
+	
+	var direccion = document.getElementById("direccion").value;
+	if(trim(direccion) == ""){
+		errores += "\t- El campo Dirección es obligatorio.\n";	
+	}
+	
+	var generar = document.getElementById("generar_clave").checked;	
+	if(!generar){
+		var cambiar = document.getElementById("cambiar_clave");
+		if(cambiar == null || cambiar.checked){
+			var clave, claveConf;
+			clave = document.getElementById("clave").value;
+			claveConf = document.getElementById("claveconf").value;
+			if(clave != claveConf){
+				errores += "\t- La contraseña y su confirmación no coinciden.\n";		
+			}
+			else if(trim(clave) == "") {
+				errores += "\t- La contraseña y su confirmación son obligatorios.\n";
+			}
+		}
+	}
+	
+	if(errores != ""){
+		alert("No es posible salvar el cliente:\n"+errores);
+	}
+	else{
+		document.forms["frmCliente"].submit();
+	}
+}
+
+function clickGenerarClave(){
+	var generar = document.getElementById("generar_clave").checked;	
+	if(generar){
+		document.getElementById("div_clave").style.display = 'none';	
+	}
+	else{
+		document.getElementById("div_clave").style.display = 'block';	
+	}
+}
+
+/*
+function cambiaAlcance(alcance){
+	if(alcance == {/literal}{$ALCANCE_SUCURSAL}{literal}){
+		document.getElementById("divSucursal").style.display = 'block';
+	}
+	else{
+		document.getElementById("divSucursal").style.display = 'none';	
+	}
+}*/
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmCliente" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="99%" cellpadding="2" cellspacing="2">
+        <tr>
+            <th align="left" width="200px">Nombre (*)</th>
+            <th align="left" width="200px">Apellido (*)</th>
+            <th align="left">Matrícula (*)</th>
+        </tr>
+        <tr>	
+            <td align="left">
+                <input type="text" name="nombre" id="nombre" size="40" value="{$nombre}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left">
+                <input type="text" name="apellido" id="apellido" size="40" value="{$apellido}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left">
+                <input type="text" name="matricula" id="matricula" size="40" value="{$matricula}" {$SOLO_LECTURA}>
+            </td>
+        </tr>
+        <tr>            
+            <th align="left">Sucursal de referencia (*)</th>
+            <th align="left">Técnico de referencia</th>
+            <th align="left">Grupo económico</th>            
+        </tr>
+        <tr>
+            <td align="left">
+				<select name="id_sucursal" id="id_sucursal" style="width: 222px">
+                    {html_options values=$ids_suc selected=$id_sucursal output=$dsc_suc}
+                </select>
+            </td>
+            <td align="left">
+                <input type="text" name="tecnico" id="tecnico" size="40" value="{$tecnico}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left">
+                <input type="text" name="grupo_economico" id="grupo_economico" size="40" value="{$grupo_economico}" {$SOLO_LECTURA}>
+            </td>
+        </tr>
+        <tr>            
+            <th align="left">Email (*)</th>
+            <th align="left">Celular (*)</th>
+            <th align="left">Teléfono fijo</th>            
+        </tr>
+        <tr>	
+            <td align="left">
+                <input type="text" name="email" id="email" size="40" value="{$email}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left">
+                <input type="text" name="celular" id="celular" size="40" value="{$celular}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left">
+                <input type="text" name="telefono" id="telefono" size="40" value="{$telefono}" {$SOLO_LECTURA}>
+            </td>
+        </tr>
+        <tr>
+            <th align="left" colspan="2">Dirección (*)</th>
+            <th align="left" colspan="2">Departamento (*)</th>
+        </tr>
+        <tr>
+            <td align="left" colspan="2">
+            	<input type="text" name="direccion" id="direccion" size="86" value="{$direccion}" {$SOLO_LECTURA}>
+            </td>
+            <td align="left" colspan="2">
+            	<select name="id_departamento" id="id_departamento" style="width: 222px">
+                    {html_options values=$ids_depto selected=$id_departamento output=$dsc_depto}
+                </select>
+            </td>
+        </tr>
+        <tr>	
+            <td align="left" colspan="3">
+                <input type="checkbox" name="suscripto_newsletter" id="suscripto_newsletter" {$suscripto}/>
+                <b>Suscripto a newsletter (*)</b>
+            </td>
+        </tr>
+        <tr>    
+            <td align="left" colspan="3">
+                <input type="checkbox" name="admitido" id="admitido" {$admitido} />
+                <b>Admitido (*)</b>
+            </td>
+        </tr>    
+        <tr>
+            <td align="left" colspan="3">
+                <input type="checkbox" name="activo" id="activo" {$activo} />
+                <b>Activo (*)</b>
+            </td>
+        </tr>
+        <tr>
+            <td align="left" colspan="3">
+                <input type="checkbox" name="generar_clave" id="generar_clave" {$generar_clave} onclick="clickGenerarClave();" />
+                <b>Generar contraseña</b>
+            </td>
+        </tr>
+        <tr>
+        	<td colspan="3" align="left">
+            	<div id="div_clave">
+                	<table>
+                    	{if $mostrar_cambiar_clave == 'S'}
+                        <tr>
+                        	<td colspan="2" align="left">
+                            	<input type="checkbox" name="cambiar_clave" id="cambiar_clave" onclick="clickGenerarClave();" />
+                				<b>Cambiar contraseña</b>
+                            </td>
+                        </tr>
+                        {/if}
+                        <tr>
+                        	<th align="left">Contraseña (*)</th>
+                            <th align="left">Confirmación (*)</th>
+                        </tr>
+                        <tr>
+                        	<td align="left">
+                                <input type="password" name="clave" id="clave" size="40" {$SOLO_LECTURA}>
+                            </td>
+                            <td align="left">
+                                <input type="password" name="claveconf" id="claveconf" size="40" {$SOLO_LECTURA}>
+                            </td>
+            			</tr>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        {if $mostrar_fecha_registro == 'S'}
+        <tr>	
+            <td align="left" colspan="3">                
+                <b>Fecha de registro:</b>&nbsp;{$fecha_registro}
+            </td>
+        </tr>
+        {/if}
+        {if $mostrar_fecha_admision == 'S'}
+        <tr>	
+            <td align="left" colspan="3">                
+                <b>Fecha de admisión:</b>&nbsp;{$fecha_admision}
+            </td>
+        </tr>
+        {/if}
+    </table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_cliente" id="id_cliente" value="{$id_cliente}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmCliente"].elements["ERROR"].value != "")
+		alert(document.forms["frmCliente"].elements["ERROR"].value);
+</script>
+{/literal}

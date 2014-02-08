@@ -1,0 +1,95 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.forms["frmVideo"].elements["id_categoria_documento"].value == ""){
+		errores += "Debe seleccionar una Categoría de Documento.\n";
+	}
+	
+	if(document.forms["frmVideo"].elements["nombre"].value == ""){
+		errores += "Debe ingresar el Nombre.\n";
+	}
+	
+	if(document.forms["frmVideo"].elements["codigo"].value == ""){
+		errores += "Debe ingresar el Código.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar el video:\n"+errores);
+	}
+	else{
+		document.forms["frmVideo"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmVideo" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="50%" cellpadding="2" cellspacing="2">
+                	<tr>
+						<th align="left">Tipo de documento</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<select name="preferencial" id="preferencial" {$SOLO_LECTURA}>
+								{html_options values=$pref_ids selected=$preferencial output=$pref_dsc}
+							</select>
+						</td>
+					</tr>
+					{if $SOLO_LECTURA == ''}
+					<tr>
+						<th align="left">Categor&iacute;a del documento</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<select name="id_categoria_documento" id="id_categoria_documento" {$SOLO_LECTURA}>
+								{html_options values=$CATEGORIA_DOCUMENTO_ID selected=$id_categoria_documento output=$CATEGORIA_DOCUMENTO_NOM}
+							</select>
+						</td>
+					</tr>
+					{else}
+					<tr>
+						<th align="left">Categor&iacute;a del documento</th>
+					</tr>
+					<tr>
+						<td align="left">
+							<input type="text" name="NOMBRE_CATEGORIA_DOCUMENTO" size="60" value="{$NOMBRE_CATEGORIA_DOCUMENTO}" readonly>
+						</td>
+					</tr>
+					{/if}
+					<tr>
+						<th align="left">Nombre</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="nombre" size="60" value="{$nombre}" {$SOLO_LECTURA} maxlength="100">
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Código</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="codigo" size="30" value="{$codigo}" {$SOLO_LECTURA} maxlength="100">
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="ID_DOCUMENTO" value="{$ID_DOCUMENTO}">
+	<input type="hidden" name="ACC" value="{$ACC}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmVideo"].elements["ERROR"].value != "")
+		alert(document.forms["frmVideo"].elements["ERROR"].value);
+</script>
+{/literal}

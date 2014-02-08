@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Prolesa - Sitio de Administraci&oacute;n</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="Description" content="">
+    <meta name="Keywords" content="">
+    
+    <link href="templates/src/estilos.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="templates/src/tinyboxstyle.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="templates/src/menues.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="templates/src/jquery-ui.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="templates/src/tooltips.css" rel="stylesheet" type="text/css" media="screen">
+    
+	<script language="javascript" src="templates/src/jscripts.js"></script>
+    <script language="javascript" src="templates/src/jquery.js"></script>
+    <script language="javascript" src="templates/src/jquery-ui.js"></script>
+    <script language="javascript" src="templates/src/menues.js"></script>
+    <script language="javascript" src="templates/src/http.js"></script>
+    <script language="javascript" src="templates/src/clonar.js"></script>
+    <script language="javascript" src="templates/src/funcion.js"></script>
+    <script language="javascript" src="templates/src/keypress_validation.js"></script>
+    <script language="javascript" src="templates/src/tinybox.js"></script>
+    <script language="javascript" src="templates/src/tiny-tooltips.js"></script>
+    
+    {$AJAX_JAVASCRIPT}
+</head>
+<body bgcolor="#FFFFFF" background="templates/img/pg_fnd.gif" style="background-repeat:repeat-x;">
+<table width="100%" cellspacing="0" cellpadding="0" border="0" id="cien1">
+	<tr>
+		<td width="12"  height="30"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="314" height="60" valign="bottom" rowspan="2" align="left">
+			<img src="templates/img/pg_sup_esq_izq.gif" width="314" height="60" usemap="#inicio" border="0" />
+		</td>
+		<td width="90%" height="30">&nbsp;</td>
+		<td width="197" height="30" valign="top" align="right">&nbsp;</td>
+		<td width="12"  height="30"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="12"  height="35">&nbsp;</td>
+		<td width="90%" height="35" background="templates/img/pg_sup_fnd.gif">&nbsp;</td>
+		<td width="197" height="35" valign="bottom" align="right"><img src="templates/img/pg_sup_esq_der.gif" width="197" height="35" border="0" usemap="#salir" /></td>
+		<td width="12"  height="35">&nbsp;</td>
+	</tr>
+	<tr>
+		<td width="12" height="90%" bgcolor="#FFFFFF"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="100%"  height="90%" colspan="3" valign="top">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0" id="cien2">
+			<tr>
+				<td width="13" height="24" background="templates/img/cnl_fnd.gif">&nbsp;
+					
+				</td>
+
+				<!-- canalera -->
+				<td width="80%" height="24" background="templates/img/cnl_fnd.gif">
+				{$MENUES}
+				</td>
+				<!-- /canalera -->
+				<!-- usuario-->
+				<td width="120" align="right" height="24" background="templates/img/cnl_fnd.gif">
+					<font class="nivel02">{$USUARIO}</font>
+				</td>
+				<!-- /usuario-->
+				<td width="10" height="24" background="templates/img/cnl_fnd.gif">&nbsp;
+					
+				</td>
+			</tr>
+			<tr>
+				<td width="13"   height="28" background="templates/img/pg_tit_fnd.gif"><img src="templates/img/pg_tit_esq_izq.gif" /></td>
+				<td width="100%" height="28" background="templates/img/pg_tit_fnd.gif" bgcolor="#FFFFFF" valign="bottom" colspan="2">
+				<font class="nivel01">{$TITULOMOD}</font>
+				</td>
+				<td width="10"   height="28" background="templates/img/pg_tit_fnd.gif"><img src="templates/img/pg_tit_esq_der.gif" /></td>
+			</tr>
+			<tr>
+				<td width="13" background="templates/img/pg_cnt_izq.gif"><img src="templates/img/transp.gif" width="13" height="1" /></td>
+				<td bgcolor="#FFFFFF" height="98%" valign="top" colspan="2">
+					<br />
+					<!-- contenido de la pagina -->
+
+					{$CONTENIDO}
+
+					<!-- /contenido de la pagina -->
+				</td>
+				<td width="10" background="templates/img/pg_cnt_der.gif"><img src="templates/img/transp.gif" width="10" height="1" /></td>
+			</tr>
+		</table>
+		</td>
+		<td width="12" height="90%" bgcolor="#FFFFFF"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+	<tr>
+		<td width="12"  height="45"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+		<td width="315" height="45" align="left"><img src="templates/img/pg_inf_esq_izq.gif" height="45" /></td>
+		<td height="45" style="background-image:url(templates/img/pg_inf_fnd.gif); background-repeat: repeat-x" width="800px">
+        	<img src="templates/img/pg_inf_fnd.gif" />
+        </td>
+		<td width="197" height="45" align="right"><img src="templates/img/pg_inf_esq_der.gif" width="197" height="45" /></td>
+		<td width="12"  height="45"><img src="templates/img/transp.gif" width="12" height="1" /></td>
+	</tr>
+</table>
+<!-- mapas -->
+<map name="inicio">
+	<area shape="circle" coords="33,44,9" href="inicio.php" title="Inicio">
+</map>
+<map name="salir">
+	<area shape="circle" coords="163,18,9" href="javascript:;" onclick="(confirm('Desea cerrar la sesi&oacute;n?'))?location.href='./logout.php':'';return false;" title="Cerrar la sesi&oacute;n">
+</map>
+<!-- /mapas -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.getElementById("pregunta").value == ""){
+		errores += "Debe ingresar la pregunta.\n";
+	}
+	
+	if(document.getElementById("respuesta").value == ""){
+		errores += "Debe ingresar la respuesta.\n";
+	}
+	
+	if(document.getElementById("numero").value == ""){
+		errores += "Debe ingresar el número.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar la pregunta más frecuente:\n"+errores);
+	}
+	else{
+		document.forms["frmFAQ"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmFAQ" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+    <div class="celda-campo">
+		<div class="tit-campo">Número de pregunta</div>
+		<input type="text" name="numero" size="10" value="{$numero}" id="numero" {$SOLO_LECTURA} onkeypress="return numOnly(event);" />
+	</div>
+    <div class="celda-campo">
+		<div class="tit-campo">&nbsp;</div>
+		<label>
+        	<b>Visible en el sitio</b>
+        	<input type="checkbox" name="visible" {$visible} id="visible">
+        </label>    
+	</div>
+    <div class="clear"></div>
+    <div class="celda-campo">
+		<div class="tit-campo">Pregunta</div>
+		<input type="text" name="pregunta" size="60" value="{$pregunta}" id="pregunta" {$SOLO_LECTURA} maxlength="200" />
+	</div>
+    <div class="clear"></div>
+    <div class="celda-campo">
+		<div class="tit-campo">Respuesta</div>
+		<textarea name="respuesta" id="respuesta" rows="3" cols="73">{$respuesta}</textarea>
+	</div>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_faq" value="{$id_faq}" id="id_faq">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmFAQ"].elements["ERROR"].value != "")
+		alert(document.forms["frmFAQ"].elements["ERROR"].value);
+</script>
+{/literal}

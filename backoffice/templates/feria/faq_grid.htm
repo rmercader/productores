@@ -1,0 +1,22 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" width="15%" class="nivel01">Identificador</td>
+		<td align="center" class="nivel01">Número</td>
+        <td align="center" class="nivel01">Pregunta</td>
+        <td align="center" class="nivel01">Respuesta</td>
+        <td align="center" class="nivel01">Visible</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02" width="60px">{$REG[linea].id}</td>
+		<td align="left" class="nivel02">{$REG[linea].numero}</td>
+        <td align="left" class="nivel02">{$REG[linea].pregunta}</td>
+        <td align="left" class="nivel02">
+        	<span onmouseover="tooltip.show('{$REG[linea].respuesta}');" onmouseout="tooltip.hide();">{$REG[linea].respuesta_dsc}{if $REG[linea].respuesta|count_characters > 70}...{/if}</span>
+        </td>
+        <td align="left" class="nivel02">{$REG[linea].visible_dsc}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>

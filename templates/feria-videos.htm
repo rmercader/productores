@@ -1,0 +1,63 @@
+<script type="text/javascript" src="Scripts/listavideos.js"></script>
+{include file="menu-feria.htm"}
+<br /><br /><br />
+{literal}
+<style>
+#ytvideo, #ytvideo2 {
+    float: left;
+    margin-right: 10px;
+}
+.yt_holder {
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #E3E3E3;
+    float: left;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+.currentvideo {
+    background: none repeat scroll 0 0 #E6E6E6;
+}
+.demo1 {
+	float: left;
+	padding-top: 20px;
+}
+.demo1 img {
+	width: 130px;
+	height: 90px;
+}
+.demo1 a {
+	float: left;
+	clear: both;
+	color:#000;
+	text-decoration: none;
+	font-weight: bold;
+}
+.demo1 li {
+	padding-right: 10px; 
+	float: left;
+}
+</style>
+{/literal}
+<div id="contenedor_agenda">
+	<div class="titulos_grande title_agenda">Galería de videos</div>
+    <div class="yt_holder">
+    <div id="ytvideo"></div>
+    <ul class="demo1">
+    {section name=linea loop=$VIDEOS}
+        <li>
+        	<a href="http://www.youtube.com/watch?v={$VIDEOS[linea].codigo}">{$VIDEOS[linea].nombre}</a>
+        </li><br />
+    {/section}
+    </ul>
+    </div>
+</div>
+{literal}
+<script type="text/javascript">
+
+$(function() {
+	//$("ul.demo1").ytplaylist();
+	$("ul.demo1").ytplaylist({autoPlay: false, playerWidth: 590, playerHeight: 400});
+});
+
+</script>
+{/literal}

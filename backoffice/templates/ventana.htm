@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+<link href="templates/src/estilos.css" rel="stylesheet" type="text/css" media="screen" />
+<link href="favicon.ico" type="image/ico" rel="shortcut icon" />
+<link href="favicon.png" type="image/png" rel="icon" />
+<script language="javascript" src="templates/src/funciones.js"></script>
+<script language="javascript" src="templates/src/http.js"></script>
+</head>
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+<table width="100%" height="100%" cellspacing="0" cellpadding="0" border="0">
+{if $TITULO <> ''}
+	<tr>
+		<td height="27" class="nivel01" align="center">{$TITULO}</td>
+	</tr>
+{else}
+	<tr>
+		<td height="27" align="center" bgcolor="#beige">&nbsp;</td>
+	</tr>
+{/if}
+	<tr>
+		<td align="center" valign="top" bgcolor="#beige">
+		{$CONTENIDO}
+		</td>
+	</tr>
+	<tr>
+		<td height="*">&nbsp;</td>
+	</tr>
+</table>
+</body>
+</html>
+

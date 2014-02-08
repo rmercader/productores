@@ -1,0 +1,53 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+
+	if(document.forms["frmLink"].elements["TITULO"].value == ""){
+		errores = "Debe ingresar el titulo.\n";
+	}
+	
+	if(document.forms["frmLink"].elements["URL"].value == ""){
+		errores = "Debe ingresar la URL.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar el link:\n"+errores);
+	}
+	else{
+		document.forms["frmLink"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmLink" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="2" cellspacing="2">
+		<tr>
+			<th align="left">T&iacute;tulo del link</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="text" name="TITULO" size="60" value="{$TITULO}" {$SOLO_LECTURA} maxlength="100">
+			</td>
+		</tr>
+		<tr>
+			<th align="left">URL</th>
+		</tr>
+		<tr>
+			<td align="left">
+				<input type="text" name="URL" size="60" value="{$URL}" {$SOLO_LECTURA}>
+			</td>
+		</tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="ID_LINK" value="{$ID_LINK}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmLink"].elements["ERROR"].value != "")
+		alert(document.forms["frmLink"].elements["ERROR"].value);
+</script>
+{/literal}

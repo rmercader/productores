@@ -1,0 +1,62 @@
+<link rel="stylesheet" type="text/css" href="css/buscador.css">
+<br />
+<form id="frmBusqueda" name="frmBusqueda" action="busqueda.php" method="post" enctype="multipart/form-data">
+<div id="busqueda-bloque">
+    <div id="spot-title"><img src="images/dingui-danga.jpg" />
+        <h2> Búsqueda en Prolesa </h2>
+    </div>
+    <div id="spot-buscador"> 
+        <input id="buscinput" name="txtBusqueda" placeholder="Ingrese en esta casilla lo que desea buscar..." type="text" value="{$txtBusqueda}" /> 
+        <input id="boton" type="image" src="images/button-search.png" />
+    </div>
+</div>
+</form>
+<div id="display-resultados" style="width: 615px;">
+    {section name=linea loop=$REG}
+    <div class="resultados">
+        <div class="resultitulo"> 
+            <a href="productos-y-servicios.php?id_producto={$REG[linea].id_producto}&amp;q={$txtBusquedaUrl}&amp;s={$s}&amp;cursor={$cursor}" target="_self">{$REG[linea].nombre_producto}</a>
+        </div>
+        <div class="resurl">
+            <a href="productos-y-servicios.php?id_producto={$REG[linea].id_producto}&amp;q={$txtBusquedaUrl}&amp;s={$s}&amp;cursor={$cursor}" target="_self">http://{$servername}/productos-y-servicios.php?id_producto={$REG[linea].id_producto}&amp;q={$txtBusquedaUrl}&amp;s={$s}&amp;cursor={$cursor}</a>
+        </div>
+        {if $REG[linea].descripcion|strip_tags:false|count_characters gt 255} 
+        <p>{$REG[linea].descripcion|strip_tags:false|truncate:255}</p>
+        {else}
+        <p>{$REG[linea].descripcion}</p>
+        {/if}
+    </div>
+    {/section}
+</div>
+
+<div id="paginator">
+{$paginacion}
+</div>
+
+<script language="javascript" src="Scripts/tinybox.js"></script>
+{literal}
+<script type="text/javascript">
+    if(typeof swfobject !== "undefined"){
+        swfobject.registerObject("FlashID");
+    }
+
+    $(document).ready(function(){
+
+        $("#boton").click(function(){
+            var txtBus = $.trim($("#buscinput").val());
+            if(txtBus == '' || txtBus.length < 3){
+                alert('Ingrese algún texto en la casilla de búsqueda, de al menos tres caracteres.');
+                return false;
+            }
+        });
+
+    });
+</script>
+{/literal}
+{if $error neq ''}
+{literal}
+<script type="text/javascript">
+alert('{/literal}{$error}{literal}');
+</script>
+{/literal}
+{/if}

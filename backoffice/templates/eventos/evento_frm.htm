@@ -1,0 +1,115 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	var nombre = document.getElementById("nombre_evento").value;
+	if(trim(nombre) == ""){
+		errores += "\t- El campo Nombre es obligatorio.\n";	
+	}
+	var alcance = document.getElementById("alcance").value;
+	var id_sucursal = document.getElementById("id_sucursal").value;
+	if(alcance == {/literal}{$ALCANCE_SUCURSAL}{literal} && id_sucursal == 0){
+		errores += "\t- Se ha seleccionado alcance {/literal}{$ALCANCE_SUCURSAL_DSC}{literal} pero no se ha seleccionado una sucursal de referencia.\n";
+	}
+	
+	if(errores != ""){
+		alert("No es posible ingresar el evento:\n"+errores);
+	}
+	else{
+		document.forms["frmEvento"].submit();
+	}
+}
+/*
+function cambiaAlcance(alcance){
+	if(alcance == {/literal}{$ALCANCE_SUCURSAL}{literal}){
+		document.getElementById("divSucursal").style.display = 'block';
+	}
+	else{
+		document.getElementById("divSucursal").style.display = 'none';	
+	}
+}*/
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmEvento" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="99%" cellpadding="2" cellspacing="2">
+					<tr>
+						<th align="left">Nombre</th>
+                        <th align="left">Fecha</th>
+                        <th align="left">Hora</th>
+                        <th align="left">Visible en el sitio</th>
+					</tr>
+					<tr>	
+						<td align="left" width="300px">
+							<input type="text" name="nombre_evento" id="nombre_evento" size="60" value="{$nombre_evento}" {$SOLO_LECTURA}>
+						</td>
+                        <td align="left" width="250px">
+							{html_select_date prefix="fecha" field_order=DMY time=$fecha end_year="+10" month_format='%m'}
+						</td>
+                        <td align="left" width="120px">
+							{html_select_time time=$hora display_seconds=false prefix=hora}
+						</td>
+                        <td align="left" >
+							<input type="checkbox" name="visible" id="visible" {$visible}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Lugar</th>
+                        <th align="left">Alcance del evento</th>
+                        <th align="left">Sucursal</th>
+					</tr>
+                    <tr>
+						<td align="left">
+                        	<input type="text" name="lugar" id="lugar" size="60" value="{$lugar}" {$SOLO_LECTURA}>
+                        </td>
+                        <td align="left">
+                        	<select name="alcance" id="alcance" style="width: 185px">
+								{html_options values=$alcance_ids selected=$alcance output=$alcance_dsc}
+							</select>
+                        </td>
+                        <td align="left" colspan="2">
+                        	<select name="id_sucursal" id="id_sucursal">
+                                {html_options values=$sucursales_ids selected=$id_sucursal output=$sucursales_dsc}
+                            </select>
+                        </td>
+					</tr>
+					<tr>
+						<th align="left" colspan="4">Imagen {if $SOLO_LECTURA == ''}(Menos de 500 KB){/if}</th>
+					</tr>
+					<tr>
+						<td align="left" colspan="4">
+							{if $SOLO_LECTURA == ''}
+							<input type="file" name="IMAGEN_1" size="90">&nbsp;
+							{else}
+							<img src="{$src_imagen}" border="0" alt="" width="200" height="180">
+							{/if}
+						</td>
+					</tr>
+					<tr>
+						<th align="left" colspan="4">Descripci&oacute;n</th>
+					</tr>
+					<tr>	
+						<td align="left" colspan="4">
+							{$descripcion}
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_evento" id="id_evento" value="{$id_evento}">
+	<input type="hidden" name="CANTIDAD_IMAGENES" value="{$CANTIDAD_IMAGENES}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmEvento"].elements["ERROR"].value != "")
+		alert(document.forms["frmEvento"].elements["ERROR"].value);
+</script>
+{/literal}

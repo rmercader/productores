@@ -1,0 +1,88 @@
+{literal}
+<script language="javascript">
+
+function before_submit(){
+	var errores = "";
+	
+	if(errores != ""){
+		alert("No es posible ingresar la sucursal:\n"+errores);
+	}
+	else{
+		document.forms["frmSucursal"].submit();
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmSucursal" onsubmit="before_submit(); return false;">	
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td valign="top">
+				<table border="0" width="99%" cellpadding="2" cellspacing="2">					
+					<tr>
+						<th align="left">Nombre</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="nombre" size="60" value="{$nombre}" id="nombre" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Tel&eacute;fonos</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="telefonos" size="60" value="{$telefonos}" id="telefonos" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Direcci&oacute;n</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="direccion" size="60" value="{$direccion}" id="direccion" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">Encargados</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="encargados" size="60" value="{$encargados}" id="encargados" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+                    <tr>
+						<th align="left">E-mail</th>
+					</tr>
+					<tr>	
+						<td align="left">
+							<input type="text" name="email" size="60" value="{$email}" id="email" {$SOLO_LECTURA}>
+						</td>
+					</tr>
+					<tr>
+						<th align="left">Imagen {if $SOLO_LECTURA == ''}(Menos de 500 KB){/if}</th>
+					</tr>
+					<tr>
+						<td align="left">
+							{if $SOLO_LECTURA == ''}
+							<input type="file" name="IMAGEN_1" size="90">&nbsp;
+							{else}
+							<img src="{$SRC_IMAGEN}" border="0" alt="" width="200" height="180">
+							{/if}
+						</td>
+					</tr>
+				</table>
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+	<input type="hidden" name="id_sucursal" value="{$id_sucursal}">
+	<input type="hidden" name="CANTIDAD_IMAGENES" value="{$CANTIDAD_IMAGENES}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmSucursal"].elements["ERROR"].value != "")
+		alert(document.forms["frmSucursal"].elements["ERROR"].value);
+</script>
+{/literal}

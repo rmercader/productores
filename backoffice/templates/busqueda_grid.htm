@@ -1,0 +1,13 @@
+<form action="{$SCRIPT_FRM}" method="post" enctype="multipart/form-data" name="frmGRID" id="frmGRID">
+<table width="{$ANCHOGRID}" align="center" cellspacing="0" border="0">
+  <tr>
+    <td align="center" valign="top">{if $FRMCRITERIO != ''} {include file=$FRMCRITERIO}{else}&nbsp;{/if}</td>
+    <td align="center" valign="bottom">{if $PAGINADOR != ''} {include file=$PAGINADOR}{else}&nbsp;{/if}</td>
+  </tr>
+  <tr>
+  	<td colspan="2" valign="top">
+ 		{$LIS_CONTENIDO}
+  	</td>
+  </tr>
+</table>
+</form>

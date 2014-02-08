@@ -1,0 +1,22 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" class="nivel01">Id.</td>
+		<td align="center" class="nivel01">Login</td>
+		<td align="center" class="nivel01">Nombre</td>
+		<td align="center" class="nivel01">Perfil</td>
+		<td align="center" class="nivel01">Activo</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02">{$REG[linea].id}</td>
+		<td align="left" class="nivel02">{$REG[linea].login}</td>
+		<td align="left" class="nivel02">{$REG[linea].nombre_usuario}</td>
+		<td align="left" class="nivel02">{$REG[linea].nombre_perfil}</td>
+		<td align="left" class="nivel02">{if $REG[linea].activo == "1"}Si{else}No{/if}</td>
+		<td width="50" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>
+<br>
+<font class="nivel01">{$MENSAJE}</font>

@@ -1,0 +1,32 @@
+<br />
+<table>
+<tr>
+    <td align="left" valign="top" class="titulos_grande">Noticias</td>
+</tr>
+<tr><td height="20px">&nbsp;</td></tr>
+<tr>
+    <td>
+		<table cellpadding="3" cellspacing="2">
+        	{section name=linea loop=$NOVEDADES}
+            	<tr>
+                	<th align="left" valign="top" colspan="2">{$NOVEDADES[linea].titulo}</th>
+                </tr>
+                <tr>
+                	<td align="left" valign="top" width="80px" rowspan="2">
+                    	<img border="0" src="backoffice/novedades/fotos/{$NOVEDADES[linea].id_novedad}/1_prv.jpg" />
+                    </td>
+                	<td align="left" valign="top" width="530px">{$NOVEDADES[linea].cabezal}</td>                    
+                </tr>
+                <tr>	
+                	<td>
+                    	<a href="javascript:;" class="leer-mas" onclick="TINY.box.show({literal}{url:'novedad-detalle.php?id={/literal}{$NOVEDADES[linea].id_novedad}'{literal}}{/literal})">Leer m&aacute;s</a>
+                    </td>
+                </tr>
+                <tr>
+                	<td colspan="2" style="border-bottom: 1px dashed #C0C0C0;">&nbsp;</td>
+                </tr>
+            {/section}
+        </table>
+    </td>
+</tr>
+</table>

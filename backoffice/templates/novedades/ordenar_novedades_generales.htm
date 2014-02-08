@@ -1,0 +1,68 @@
+{literal}
+<script language="javascript">
+
+function procesar(){
+	var strIDs = ""
+	var lista = document.forms["frmOrdenacionNovedades"].elements["ORDENACION_NOVEDADES"];
+  for (var i=0; i < lista.options.length; i++){
+  	strIDs += lista.options[i].value + "#" + (i+1) + "|";
+  }
+	
+	document.forms["frmOrdenacionNovedades"].elements["MEJUNJE_ORDENADO"].value = strIDs;
+	document.forms["frmOrdenacionNovedades"].submit();
+}
+
+function mover(f, bDir, sName) {
+	var el = f.elements["ORDENACION_NOVEDADES"];
+	var idx = el.selectedIndex;
+	if (idx == -1) 
+		alert("Debe seleccionar primero un item.");
+	else {
+		var nxidx = idx + ( bDir? -1 : 1);
+		if (nxidx < 0) nxidx = el.length - 1;
+		if (nxidx >= el.length) nxidx = 0;
+		var oldVal = el[idx].value;
+		var oldText = el[idx].text;
+		el[idx].value = el[nxidx].value;
+		el[idx].text = el[nxidx].text;
+		el[nxidx].value = oldVal;
+		el[nxidx].text = oldText;
+		el.selectedIndex = nxidx;
+	}
+}
+
+</script>
+{/literal}
+<form action="" method="POST" enctype="multipart/form-data" name="frmOrdenacionNovedades" onsubmit="procesar(); return false;">
+	{$NAVEGADOR}
+	<table border="0" width="100%" cellpadding="1" cellspacing="0" valign="top">
+		<tr>
+			<td align="center">
+				<INPUT TYPE=button VALUE="Mover Arriba" ONCLICK="mover(this.form, true, '{$MEJUNJE_ORDENADO}')">
+			</td>
+		<tr>	
+		<tr>
+			<td align="center">
+				<select name="ORDENACION_NOVEDADES" size="{$CANTIDAD_NOVEDADES}">
+				{section name=linea loop=$NOVEDADES}
+					<option value="{$NOVEDADES[linea].id_novedad}"{$NOVEDADES[linea].selected}>{$NOVEDADES[linea].titulo} (Id. {$NOVEDADES[linea].id_novedad})</option>
+				{/section}
+				</select>
+			</td>
+		<tr>
+		<tr>
+			<td align="center">
+				<INPUT TYPE=button VALUE="Mover Abajo" ONCLICK="mover(this.form, false, '{$MEJUNJE_ORDENADO}')">
+			</td>
+		<tr>
+	</table>
+	<input type="hidden" name="MEJUNJE_ORDENADO" value="">
+	<input type="hidden" value="{$CANTIDAD_NOVEDADES}" name="CANTIDAD_NOVEDADES">
+	<input type="hidden" name="ERROR" value="{$ERROR}">
+</form>
+{literal}
+<script language="javascript">
+	if (document.forms["frmOrdenacionNovedades"].elements["ERROR"].value != "")
+		alert(document.forms["frmOrdenacionNovedades"].elements["ERROR"].value);
+</script>
+{/literal}

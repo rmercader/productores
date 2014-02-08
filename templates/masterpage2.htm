@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
+<title>Prolesa</title> 
+</head> 
+
+<body>
+<div id="container">
+	<div id="header">
+    	<img src="pics/header.jpg" alt="" width="880" height="245" />
+    </div>
+    <div id="menu">
+    {if $pagina == 'empresa'}
+        <div class="menu-actual">EMPRESA</div>
+    {else}
+        <a href="empresa.php"><p>EMPRESA</p></a>
+    {/if}
+        <p><a href="sucursales.php">SUCURSALES</a></p>
+        <p><a href="f">PRODUCTOS Y SERVICIOS</a></p>
+        <p><a href="f">INGRESO CLIENTES</a></p>
+        <p><a href="f">PROVEEDORES</a></p>
+        <p><a href="f">MI PROLESA</a></p>
+        <p><a href="f">NOTICIAS</a></p>
+        <p><a href="f">CONTACTO</a></p>
+        <p><a href="f">LINKS DE INTERÉS</a></p>
+        <div id="barra" align="center">
+            <div id="TT_edY3suIW4maH6ArU3a"><h2><a href="http://www.tutiempo.net/tiempo/Uruguay/UY.html">El Tiempo en Uruguay</a></h2><a href="http://www.tutiempo.net/tiempo/Montevideo_Melilla/SUAA.htm">El tiempo en Montevideo - Melilla</a></div>
+<script type="text/javascript" src="http://www.tutiempo.net/TTapi/int/edY3suIW4maH6ArU3a"></script>
+            <img src="pics/banner_img.jpg" alt="" width="223" height="191" class="img_barra" />
+        </div>
+    </div>
+    {$contenido_seccion}
+    <div id="footer"><b>Prolesa:</b> Bulevar Artidas 258 - XXX: xxx / xxx - xxxx Bulevar Artidas 258 - XXX: xxx / xxx - xxxx</div>    
+</div>
+<div><img src="pics/foot_inferior.png" width="929" height="14" alt="" /></div>
+</body>
+</html>

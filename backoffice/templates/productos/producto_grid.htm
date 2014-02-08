@@ -1,0 +1,22 @@
+<table width="98%" align="center" cellspacing="0">
+	<tr>
+		<td align="center" width="15%" class="nivel01">Identificador</td>
+		<td align="center" width="25%" class="nivel01">Categor&iacute;a</td>
+		<td align="center" class="nivel01">Nombre</td>
+        <td align="center" width="15%" class="nivel01">C&oacute;digo SAP</td>
+        <td align="center" class="nivel01">Foto</td>
+		<td align="center" width="50" class="nivel01">&nbsp;</td>
+	</tr>
+	{section name=linea loop=$REG}
+	<tr>
+		<td align="center" class="nivel02">{$REG[linea].id}</td>
+		<td align="center" class="nivel02">{$REG[linea].nombre_categoria_producto}</td>
+		<td align="left" class="nivel02">{$REG[linea].nombre_producto}</td>
+        <td align="left" class="nivel02">{$REG[linea].codigo_sapp}</td>
+        <td align="center" class="nivel02" width="50px">
+        	<img src="{$DIR_HTTP_FOTOS_PRODUCTOS}{$REG[linea].id}/1.thu.{$REG[linea].extension_imagen}" />
+        </td>
+		<td width="50px" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+	</tr>
+	{/section}
+</table>

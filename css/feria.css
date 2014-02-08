@@ -1,0 +1,37 @@
+@charset "utf-8";
+/* CSS Document */
+#contenedor_evento {
+	width:615px;
+	margin:0 auto;
+	background-color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	text-align:left;
+}
+.title_evento {
+	height:35px;
+	margin-bottom:20px;
+}
+.cont_evento {
+	padding-bottom:10px;
+	margin-bottom:25px;
+}
+#contenedor_agenda {
+	width:615px;
+	margin:0 auto;
+	background-color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:12px;
+	color:#333;
+	text-align:left;
+}
+.title_agenda {
+	height:35px;
+	margin-bottom:20px;
+}
+.cont_agenda {
+	border-bottom: #e7e7e7 1px solid;
+	padding-bottom:10px;
+	margin-bottom:25px;
+}

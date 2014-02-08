@@ -1,0 +1,22 @@
+<table width="100%" cellpadding="1" cellspacing="0" align="left" valign="top">
+	<tr>
+		<td class="nivel01">Fotos</td>
+	</tr>	
+	{section name=item_foto loop=$FOTOS}
+		<tr>
+			<th align="left">
+				<font color="blue">{if $MSG_CHICA == 'S' &&  $FOTOS[item_foto].actual == 1} Foto peque&ntilde;a de referencia {else} Foto n&uacute;mero {$FOTOS[item_foto].actual}{/if}</font>
+			</th>
+		</tr>	
+		<tr>
+			<td align="left">
+				{if $SOLO_LECTURA == ''}
+				<input type="file" name="FOTO_{$FOTOS[item_foto].actual}" size="40">&nbsp;
+				{else}
+				<img src="{$FOTOS[item_foto].src_foto}" border="0" alt="" width="200" height="180">
+				{/if}
+			</td>
+		</tr>
+	{/section}
+	<input type="hidden" name="CANTIDAD_FOTOS" value="{$CANTIDAD_FOTOS}">
+</table>

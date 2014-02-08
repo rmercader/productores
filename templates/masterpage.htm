@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<script type="text/javascript" src="Scripts/tinybox.js"></script>
+	<script type="text/javascript" src="Scripts/jQuery.js"></script>
+	<script type="text/javascript" src="Scripts/jscomunes.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/base.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/feria.css" />
+    <link rel="stylesheet" href="css/calendar_style.css" />
+    <title>Prolesa</title>
+ 	{literal}<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-28658716-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>{/literal}
+{literal}
+<script language="JavaScript" type="text/javascript">
+function PopWindow(){
+	window.open("http://www.prolesa.com.uy/","Tobias","width=450,height=571, menubar=no,scrollbars=no,toolbar=no ,location=yes,directories=yes, resizable=yes ,top=0,left=0");
+}
+</script> 
+{/literal}
+
+</head> 
+
+<body>
+{$AJAX_JAVASCRIPT}
+{literal}
+<script language="javascript">
+	
+	function navigate(month, year){
+		xajax_armarCalendarioEventos(month, year, "cal_eventos");
+	}
+		
+	$(document).ready(function(){
+		navigate("", "");
+	});
+		
+	function mostrarEventosDia(day, month, year){
+		var lf = (screen.width/5);
+		var tp = (screen.height/6);
+		TINY.box.show({url: 'evento-detalle.php?dia='+day+'&mes='+month+'&anio='+year, close: true, width: 667, height: 300, left: lf, top: tp});
+	}
+	
+</script>
+{/literal}
+
+<div id="container">
+	<div id="header">
+    	<!-- Aca va el SWF del cabezal --><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="880" height="245">
+    <param name="movie" value="swf/cabezal.swf" />
+    <param name="quality" value="high" />
+    <param name="wmode" value="opaque" />
+    <param name="swfversion" value="6.0.65.0" />
+    <!-- Esta etiqueta param indica a los usuarios de Flash Player 6.0 r65 o posterior que descarguen la versión más reciente de Flash Player. Elimínela si no desea que los usuarios vean el mensaje. -->
+    <param name="expressinstall" value="Scripts/expressInstall.swf" />
+    <!-- La siguiente etiqueta object es para navegadores distintos de IE. Ocúltela a IE mediante IECC. -->
+    <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="swf/cabezal.swf" width="880" height="245">
+      <!--<![endif]-->
+      <param name="quality" value="high" />
+      <param name="wmode" value="opaque" />
+      <param name="swfversion" value="6.0.65.0" />
+      <param name="expressinstall" value="Scripts/expressInstall.swf" />
+      <!-- El navegador muestra el siguiente contenido alternativo para usuarios con Flash Player 6.0 o versiones anteriores. -->
+      <div>
+        <h4>El contenido de esta página requiere una versión más reciente de Adobe Flash Player.</h4>
+        <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Obtener Adobe Flash Player" width="112" height="33" /></a></p>
+      </div>
+      <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+    </div>
+    <table cellspacing="0" cellpadding="0">
+    	<tr>
+        	<td align="left" valign="top">
+            	<table cellpadding="0" cellspacing="0">
+                <tr><td>
+                <div id="menu">
+                {if $pagina == 'empresa'}
+                    <div class="menu-actual">EMPRESA</div>
+                {else}
+                    <p><a href="empresa.php">EMPRESA</a></p>
+                {/if}
+                {if $pagina == 'sucursales'}
+                    <div class="menu-actual">SUCURSALES</div>
+                {else}
+                    <p><a href="sucursales.php">SUCURSALES</a></p>
+                {/if}
+                <p><a href="javascript:;" onclick="abrirAnimacionPyS();">PRODUCTOS Y SERVICIOS</a></p>
+                {if $pagina == 'ingreso-clientes'}
+                    <div class="menu-actual">INGRESO CLIENTES</div>
+                {else}
+                    <p><a href="ingreso-clientes.php">INGRESO CLIENTES</a></p>
+                {/if}
+                <!--
+                {if $pagina == 'mi-prolesa'}
+                    <div class="menu-actual">MI PORTAL INTERNO</div>
+                {else}
+                    <p><a href="mi-prolesa.php">MI PORTAL INTERNO</a></p>
+                {/if}-->
+                {if $pagina == 'novedades'}   
+                    <div class="menu-actual">NOTICIAS</div>
+                {else}   
+					<p><a href="novedades.php">NOTICIAS</a></p>
+                {/if}
+                {if $pagina == 'feria'}   
+                    <div class="menu-actual">LA FERIA DE PROLESA</div>
+                {else}   
+					<p><a href="feria-home.php">LA FERIA DE PROLESA</a></p>
+                {/if}
+                {if $pagina == 'links'}   
+                    <div class="menu-actual">LINKS DE INTERÉS</div>
+                {else}   
+					<p><a href="links.php">LINKS DE INTERÉS</a></p>
+				{/if} 
+                {if $pagina == 'galeria'}   
+                    <div class="menu-actual">GALERIA DE IMÁGENES</div>
+                {else}   
+					<p><a href="galeria.php">GALERIA DE IMÁGENES</a></p>
+				{/if} 
+                {if $pagina == 'contacto'}
+					<div class="menu-actual">CONTACTO</div>
+                {else}   
+					<p><a href="contacto.php">CONTACTO</a></p>
+                {/if}
+                    <div id="barra" align="center">
+                        <table>
+                        	<tr>
+                            	<td align="center">
+                        			<div id="TT_H69XsuS3V9a7dKB7Va"><h2><a href="http://www.tutiempo.net/tiempo/Uruguay/UY.html">El Tiempo en Uruguay</a></h2><a href="http://www.tutiempo.net/tiempo/Montevideo_Melilla/SUAA.htm">El tiempo en Montevideo - Melilla</a></div>
+            						<script type="text/javascript" src="http://www.tutiempo.net/TTapi/int/H69XsuS3V9a7dKB7Va"></script>                        		</td>
+							</tr>
+                            <tr>
+                            	<td align="center" height="15px" style="border-bottom: 1px solid #999"></td>                            
+                            </tr>
+                            <tr>
+                            	<td align="center" height="5px"></td>                            
+                            </tr>
+                            <tr>
+                            	<td align="center" style="font-size: 14px; color: #000">Agenda de eventos</td>                            
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                </td></tr>
+                <tr><td align="center" style="padding-left: 25px">
+                <table width="222px" align="center">
+                	<tr>
+                        <td align="center">
+                            <div id="cal_eventos" style="height:150px; width:200px;"></div>			                        
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center" height="10px"></td>                            
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img src="pics/banner_img.jpg" alt="" class="img_barra" />
+                        </td>
+                    </tr>
+                </table>
+                </td></tr>
+                </table>
+            </td>
+            <td style="vertical-align: top">
+            	<div id="contenido-seccion">
+                    {$contenido_seccion}
+                </div>
+            </td>
+        </tr>
+    </table>       
+    <div id="footer"><b>Prolesa Insumos: </b> La Paz 1327 / C.P: 11800  / Tel: (598) 2924 1350 - 2924 1695 / Montevideo - Uruguay</div>
+</div>
+<!--<div><img src="pics/foot_inferior.png" width="929" height="14" alt="" /></div>-->
+<div align="center"><img src="pics/firma.png" alt="" width="880" height="30" border="0" usemap="#Map" />
+  <map name="Map" id="Map">
+    <area shape="rect" coords="674,4,877,25" href="http://www.fira.com.uy" target="_blank" />
+  </map>
+</div>
+</body>
+</html>

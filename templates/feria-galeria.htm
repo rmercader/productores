@@ -1,0 +1,112 @@
+{include file="menu-feria.htm"}
+<br /><br /><br />
+{literal}
+<style>
+p {
+	line-height:1.4; 
+	margin-bottom:12px
+}
+#wrapper {
+	width:650px; 
+	margin: auto
+}
+
+.sliderbutton {
+	float:left; 
+	width:32px; 
+	padding-top:184px
+}
+.sliderbutton img {
+	cursor:pointer
+}
+.sliderbutton img:hover {
+	background:#666
+}
+#slideshow {
+	float:left; 
+	width:550px; 
+	height:400px; 
+	border:2px solid #689E00; 
+	background:#fff
+}
+#slides {
+	position:relative; 
+	width:550px; 
+	height:400px; 
+	list-style:none; 
+	overflow:auto
+}
+#slides li {
+	width:550px; 
+	height:400px
+}
+
+.pagination {
+	float:left; 
+	list-style:none; 
+	height:25px; 
+	margin:15px 40px 0px 35px;
+}
+.pagination li {
+	float:left; 
+	cursor:pointer; 
+	padding:5px 8px; 
+	background:#689e00; 
+	border:1px solid #314B02; 
+	margin:5px 4px 0 0; 
+	text-align:center; 
+	color:#FFF
+}
+.pagination li:hover {
+	background:#314B02; 
+	border:1px solid #bbb; 
+	color:#fff600
+}
+li.current {
+	border:1px solid #314B02; 
+	background:#314B02;
+	color: #fff600;
+}
+
+li#content {width:464px; height:270px; padding:15px 18px 15px 18px; background:#fff}
+#content h1 {font:22px "Trebuchet MS", Arial, Helvetica, sans-serif; margin-bottom:15px; color:#036}
+</style>
+{/literal}
+<div id="contenedor_evento">
+  	<div class="titulos_grande title_evento">Galería de fotos</div>
+    <div id="wrapper">
+        <div>
+            <div class="sliderbutton"><img src="images/left.gif" width="32" height="38" alt="Previous" onclick="slideshow.move(-1)" /></div>
+            <div id="slideshow">
+                <ul id="slides">
+                {section name=linea loop=$FOTOS}
+                    <li><img src="{$FOTOS[linea].url}" width="550" height="400" alt="{$FOTOS[linea].archivo}" /></li>
+                {/section}
+                </ul>
+            </div>
+            <div class="sliderbutton"><img src="images/right.gif" width="32" height="38" alt="Next" onclick="slideshow.move(1)" /></div>
+        </div>
+        <ul id="pagination" class="pagination">
+        {section name=pagina loop=$PAG}
+        	{if $PAG[pagina] lt 9}
+            <li onclick="slideshow.pos({$PAG[pagina]})" style="padding-left: 11px; padding-right: 11px;">{$PAG[pagina]+1}</li>
+            {else}
+            <li onclick="slideshow.pos({$PAG[pagina]})">{$PAG[pagina]+1}</li>
+            {/if}
+        {/section}    
+        </ul>
+    </div>  
+</div>
+<script language="javascript" src="Scripts/tinyfader.js"></script>
+{literal}
+<script type="text/javascript">
+var slideshow=new TINY.fader.fade('slideshow', {
+	id:'slides',
+	resume:true,
+	navid:'pagination',
+	activeclass:'current',
+	visible:true,
+	position:0
+});
+</script>
+{/literal}

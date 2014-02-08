@@ -1,0 +1,28 @@
+{if $SCRIPT_HOME != ''}
+	<a href="{$SCRIPT_HOME}?COD={$REG[linea].id}" title="{$TOOLTIP_HOME}">
+		{if $REG[linea].id == $ITEM_HOME}
+		<img src="templates/img/lst_tarea_culminada.gif" alt="Principal" border="0" hspace="2">
+		{else}
+		<img src="templates/img/lst_tarea_no_culminada.gif" alt="Marcar como principal" border="0" hspace="2">
+	</a>
+		{/if}
+{/if}
+{if $SCRIPT_CT != ''}
+	<a href="{$SCRIPT_CT}&COD={$REG[linea].id}" title="Ver">
+    	<img src="templates/img/ico-lst-ver.gif" alt="Ver" border="0" hspace="2">
+    </a>
+{/if}
+{if $SCRIPT_ED != ''}
+	<a href="{$SCRIPT_ED}&COD={$REG[linea].id}" title="Editar">
+    	<img src="templates/img/ico-lst-editar.gif" alt="Editar" border="0" hspace="2">
+    </a>
+{/if}
+{if $SCRIPT_DEL != ''}
+	<a href="{$SCRIPT_DEL}&COD={$REG[linea].id}" title="Eliminar">
+    	<img src="templates/img/ico-lst-eliminar.gif" alt="Eliminar" border="0" hspace="2">
+    </a>
+{/if}
+{if $SCRIPT_SEL != ''}
+	<a href="javascript:;" onclick="opener.document.forms['{$CFRM}'].elements['{$CID}'].value='{$REG[linea].id}';opener.document.forms['{$CFRM}'].elements['{$CNOM}'].value='{$REG[linea].nombre}';{if $ACTUALIZA != ''}opener.document.forms['{$CFRM}'].elements['{$ACTUALIZA}'].focus();{/if}self.close();" title="Seleccionar"><img src="templates/img/lst_seleccionar.gif" alt="Seleccionar" border="0" hspace="2"></a>
+{/if}
+

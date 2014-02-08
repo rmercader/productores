@@ -1,0 +1,47 @@
+<img src="pics/fondo-evento.png" style="position: absolute; left: -20px; top: -35px;" />
+<div style="position: absolute; left: 30px; top: 60px;">
+	<img src="{$img_src}" style="position: absolute; left: 114px; top: 22px;" width="{$img_w}" height="{$img_h}" />
+    <div id="dia" style="position: absolute; font-size: 60px; color: #689E00; text-align: center; width: 90px; top: -20px;">{$dia}</div>
+    <div id="dia" style="position: absolute; font-size: 40px; color: #689E00; text-align: center; width: 90px; top: 40px;">{$mes}</div>
+    <div id="datos" align="center" style="position: absolute; left: 350px; width: 320px; top: -25px">
+    	<table cellspacing="5">
+        	<tr>
+            	<td align="center" style="color: #312780; font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif; font-size: 28px;">
+                	{$nombre_evento}
+                </td>
+            </tr>
+            <tr>
+            	<td align="center" style="color: #000; font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif; font-size: 22px;">
+                	{$hora}
+                </td>
+            </tr>
+            {if $sucursal != ''}
+            <tr>
+            	<td align="center" style="color: #000; font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif; font-size: 22px;">
+                	Sucursal: {$sucursal}
+                </td>
+            </tr>
+            {/if}
+            <tr>
+            	<td align="center" style="color: #000; font-family: 'Trebuchet MS',Arial,Helvetica,sans-serif; font-size: 22px;">
+                	Lugar: {$lugar}
+                </td>
+            </tr>
+            <tr>
+            	<td align="left">
+                	{$descripcion}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+{if $mostrar_anterior == 'S'}
+<a href="javascript:;" onclick="navegarEvento('{$url_anterior}');" style="position: absolute; left: -55px; top: 340px;" title="Anterior">
+	<img src="backoffice/templates/img/btn-anterior.png" border="0" title="Anterior" alt="Anterior" />
+</a>
+{/if}
+{if $mostrar_siguiente == 'S'}
+<a href="javascript:;" onclick="navegarEvento('{$url_siguiente}');" style="position: absolute; top: 95px; left: 703px;" title="Siguiente">
+	<img src="backoffice/templates/img/btn-siguiente.png" border="0" title="Siguiente" alt="Siguiente" />
+</a>
+{/if}

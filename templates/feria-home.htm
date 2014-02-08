@@ -1,0 +1,78 @@
+{include file="menu-feria.htm"}
+<br /><br /><br />
+{literal}
+<style>
+.cabezal_evento {
+	width:166px;
+	height:25px;
+	background:url(pics/fecha_bg_detalles.jpg) no-repeat;
+	clear:both;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size:13px;
+	color:#FFF;
+	font-weight:bold;
+	padding-top:7px;
+	padding-left:20px;
+	text-transform:uppercase;
+}
+.mapa_evento {
+	border:#699f01 11px solid;
+	height:210px;
+	background-color: #699F01;
+}
+.info_evento {
+	color:#4f4f4f;
+	font-weight:bold;
+	margin-top:15px;
+	border-bottom:1px solid #CCC;
+	height:27px;
+}
+.info_evento li {
+	background:url(pics/ico_grande.jpg) left 0px no-repeat;
+	display:block;
+	color:#000;
+	font-size:13px;
+	padding-left:26px;
+	height:21px;
+	font-weight:bold;
+	padding-top:2px;
+	width:400px;
+}
+.info_detalles {
+	font-weight:100;
+	color:#666;
+}
+.titulos_evento {
+	font-weight:bold;
+	color:#000;
+	margin-top:15px;
+	font-size:13px;
+}
+#descripcion_evento {
+	color:#333;
+	font-size:12px;
+	margin-top:15px;
+}
+.titulo_descripcion {
+	color:#669d00;
+	font-size:16px;
+	font-weight:bold;
+}
+</style>
+{/literal}
+<div id="contenedor_evento">
+  <div class="titulos_grande title_evento">Detalles del Evento</div>
+  <div>
+    <div class="cont_evento">
+      <div class="cabezal_evento">como llegar </div>
+      <div class="mapa_evento">{$mapa}</div>
+      <div class="info_evento">
+      	<li>Lugar: <span class="info_detalles">{$lugar}</span></li><br />
+      </div>
+      <div class="titulos_evento">Fecha de inicio: <span class="info_detalles">{$fecha_i}</span><br />Fecha de finalización: <span class="info_detalles">{$fecha_f}</span>
+      </div>
+      <div id="descripcion_evento"><span class="titulo_descripcion">Descripción:</span><br />{$detalles}</div>
+    </div>
+  </div>
+  
+</div>

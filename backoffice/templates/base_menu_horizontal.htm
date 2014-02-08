@@ -1,0 +1,30 @@
+<!-- links aa-->
+<table cellspacing="0" cellpadding="0" border="0">
+	<tr>
+	{foreach name=menues item=linea from=$REG}
+		<td width="{$linea.menu_ancho}" height="24">
+			<a href="{if $linea.menu_link!=""}{$linea.menu_link}{else}javascript:;{/if}" onmouseover="ypSlideOutMenu.showMenu('mnu_{$linea.menu_id}');" onmouseout="ypSlideOutMenu.hideMenu('mnu_{$linea.menu_id}');">
+				<img src="./imagen_menu_desplegable.php?TEXTO={$linea.menu_nombre}" border="0"/>
+			</a>
+		</td>
+	{/foreach}
+	</tr>
+</table>
+<!-- /links -->
+
+<!-- menues -->
+{foreach name=divs item=linea from=$REG2}
+<div style="visibility: hidden;" id="mnu_{$linea.menu_id}Container" class="menu">
+	<div style="top: -69px;" id="mnu_{$linea.menu_id}Content">
+		<script type="text/javascript">
+			new ypSlideOutMenu("mnu_{$linea.menu_id}", "down", {$linea.menu_left}, 89, {$linea.menu_ancho}, {math equation="x * 22" x=$linea.menu_cant});
+		</script>
+		<ul id="nav">
+			{foreach name=enlaces item=links from=$linea.menu_links}
+				<li><a href="{$links.link_link}" target="{$links.link_destino}"><img src="templates/img/css_nav.gif" border="0" align="absmiddle" hspace="4" />{$links.link_nombre}</a></li>
+			{/foreach}
+		</ul>
+	</div>
+</div>
+{/foreach}
+<!-- /menues -->

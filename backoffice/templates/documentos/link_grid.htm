@@ -1,0 +1,16 @@
+<table width="98%" align="center" cellspacing="0">
+  <tr>
+  	<td align="center" width="120" class="nivel01">Identificador</td>
+    <td align="center" class="nivel01">T&iacute;tulo del link</td>
+    <td align="center" class="nivel01">URL</td>
+    <td align="center" width="50" class="nivel01">&nbsp;</td>
+  </tr>
+  {section name=linea loop=$REG}
+  <tr>
+  	<td align="center" class="nivel02">{$REG[linea].id}</td>
+    <td align="left" class="nivel02">{$REG[linea].titulo}</td>
+    <td align="left" class="nivel02">{$REG[linea].url}</td>
+    <td width="50" align="left" class="nivel02" nowrap="nowrap">{include file="base_accion_grid.htm"}</td>
+  </tr>
+  {/section}
+</table>
