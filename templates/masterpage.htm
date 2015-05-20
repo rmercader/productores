@@ -25,16 +25,19 @@
 
 </script>{/literal}
 {literal}
-<script language="JavaScript" type="text/javascript">
-function PopWindow(){
-	window.open("http://www.prolesa.com.uy/","Tobias","width=450,height=571, menubar=no,scrollbars=no,toolbar=no ,location=yes,directories=yes, resizable=yes ,top=0,left=0");
+<script language=”JavaScript” type=”text/javascript”>
+
+function PopWindow()
+{
+window.open("http://www.prolesa.com.uy/popup.html", "Feria", "width=800,height=578, menubar=no,scrollbars=no,toolbar=no ,location=yes,directories=yes, resizable=yes ,top=0,left=0");
 }
+
 </script> 
 {/literal}
 
 </head> 
 
-<body>
+<body onload="AlertMessage(); JavaScript:PopWindow();">
 {$AJAX_JAVASCRIPT}
 {literal}
 <script language="javascript">
@@ -58,7 +61,7 @@ function PopWindow(){
 
 <div id="container">
 	<div id="header">
-    	<!-- Aca va el SWF del cabezal --><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="880" height="245">
+    	<!-- Aca va el SWF del cabezal --><object id="FlashID" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="880" height="278">
     <param name="movie" value="swf/cabezal.swf" />
     <param name="quality" value="high" />
     <param name="wmode" value="opaque" />
@@ -67,7 +70,7 @@ function PopWindow(){
     <param name="expressinstall" value="Scripts/expressInstall.swf" />
     <!-- La siguiente etiqueta object es para navegadores distintos de IE. Ocúltela a IE mediante IECC. -->
     <!--[if !IE]>-->
-    <object type="application/x-shockwave-flash" data="swf/cabezal.swf" width="880" height="245">
+    <object type="application/x-shockwave-flash" data="swf/cabezal.swf" width="880" height="278">
       <!--<![endif]-->
       <param name="quality" value="high" />
       <param name="wmode" value="opaque" />
