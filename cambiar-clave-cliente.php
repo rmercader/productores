@@ -76,6 +76,10 @@ else{
 // Asignacion de campos en la pagina
 $seccion->assign('error', $errores);
 $seccion->assign('exito', $exitos);
+$seccion->assign('claveant', $claveant);
+$seccion->assign('clave', $clave);
+$seccion->assign('clavecnf', $claveConf);
+
 $marco->assign('contenido_seccion', $seccion->fetchHTML());
 $marco->assign('pagina', 'ingreso-clientes');
 $marco->assign('AJAX_JAVASCRIPT', generarCodigoParaAjax($FUNCIONES_AJAX, DIR_HTTP_PUBLICA.'ajax_eventos.php'));
