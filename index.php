@@ -75,6 +75,17 @@ for($i = 4; $i < count($novsHome); $i++){
 	$seccion->append('NOVS', array('id_novedad'=>$novsHome[$i]['id_novedad'], 'titulo'=>$novsHome[$i]['titulo']));	
 }
 
+/*
+// Popup inicial
+if(!isset($_COOKIE["PopupInicio"])){
+	setcookie("PopupInicio", 1, time() + 3600); // Que expire en una hora
+	$seccion->assign("popup_inicio", _SI);
+}
+else {
+	$seccion->assign("popup_inicio", _NO);
+}*/
+$seccion->assign("popup_inicio", _NO);
+
 $marco->assign('contenido_seccion', $seccion->fetchHTML());
 $marco->assign('pagina', 'home');
 $marco->assign('AJAX_JAVASCRIPT', generarCodigoParaAjax($FUNCIONES_AJAX, DIR_HTTP_PUBLICA.'ajax_eventos.php'));
