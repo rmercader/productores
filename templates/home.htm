@@ -1,20 +1,31 @@
 <link rel="stylesheet" type="text/css" href="css/buscador.css">
 <br />
 <form id="frmBusqueda" name="frmBusqueda" action="busqueda.php" method="post" enctype="multipart/form-data">
-<div id="busqueda-bloque">
-    <div id="spot-title"><img src="images/dingui-danga.jpg" />
-        <h2> Búsqueda en Prolesa </h2>
+    <div id="busqueda-bloque">
+        <div id="spot-title"><img src="images/dingui-danga.jpg" />
+            <h2> Búsqueda en Prolesa </h2>
+        </div>
+        <div id="spot-buscador"> 
+            <input id="buscinput" name="txtBusqueda" placeholder="Buscar..." type="text" /> 
+            <input id="boton" type="image" src="images/button-search.png" />
+        </div>
     </div>
-    <div id="spot-buscador"> 
-        <input id="buscinput" name="txtBusqueda" placeholder="Ingrese en esta casilla lo que desea buscar..." type="text" /> 
-        <input id="boton" type="image" src="images/button-search.png" />
+    <div id="eleche-bloque">
+        <div id="spot-title-eleche">
+            <img src="images/dingui-danga.jpg" />
+            <h2> Reserva de Semillas </h2>
+        </div>
+        <div id="spot-eleche"> 
+            <a id="boton-eleche" title="Ingreso a reserva de semillas" href="javascript:void(0);">
+                <img src="pics/haga-su-reserva.png" alt="Haga su reserva" />
+            </a>
+        </div>
     </div>
-</div>
 </form>
 <br />
 <table width="615" border="0" cellspacing="0" cellpadding="0">
 <tr>
-   	<td height="500" align="left" valign="top" bgcolor="#FFFFFF">
+   	<td height="500" align="left" valign="top" bgcolor="#FFFFFF" style="padding-top: 10px;">
        	<table width="615" border="0" cellspacing="0" cellpadding="0">
    		<tr>
       		<td width="615" height="500" align="left" valign="top">
@@ -194,6 +205,58 @@
                 alert('Ingrese algún texto en la casilla de búsqueda, de al menos tres caracteres.');
                 return false;
             }
+        });
+
+        $("#boton-eleche").click(function(){
+            
+            var htmlPopup = '' + 
+            '<table width="250">' +
+            '   <tr>' +
+            '       <th align="left"><span class="destacado_txt">Matrícula:</span></th>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td align="left">' +
+            '           <input type="text" id="matricula-eleche" value="" class="campo-texto" />' +
+            '       </td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <th align="left"><span class="destacado_txt">PIN:</span></th>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td width="250" align="left">' +
+            '           <input type="password" id="pin-eleche" class="campo-texto" />' +
+            '       </td>' +
+            '   </tr>' +
+            '   <tr>' +
+            '       <td align="left">' +
+            '           <img src="pics/bot_enviar.jpg" alt="Enviar" title="Enviar" id="enviar-eleche" style="cursor:pointer;" />' +
+            '           <img src="pics/volver.png" border="0" style="cursor:pointer;" onclick="javascript:TINY.box.hide();" title="Volver">' +
+            '       </td>' +
+            '   </tr>' +
+            '</table>' + 
+            '<div id="mensaje-popup-eleche" style="height: 50px;"></div>';
+
+            TINY.box.show({
+                html: htmlPopup,
+                openjs: function(){
+
+                    $("#enviar-eleche").click(function(){
+
+                        $("#mensaje-popup-eleche").html('');
+
+                        var matricula = $("#matricula-eleche").val();
+                        var pin = $("#pin-eleche").val();
+
+                        if($.trim(matricula) != '' && $.trim(pin) != ''){
+                            debugger;
+                            location.href = "http://www.eleche.com.uy/pagelogredirect.aspx?1," + matricula + "," + pin + ",254,0";
+                        }
+                        else {
+                            $("#mensaje-popup-eleche").html('Es requerido el ingreso de la matrícula y el PIN.');
+                        }
+                    });
+                }
+            });
         });
         
     });
