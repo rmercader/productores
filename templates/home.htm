@@ -16,8 +16,8 @@
             <h2> Reserva de Semillas </h2>
         </div>
         <div id="spot-eleche"> 
-            <a id="boton-eleche" title="Ingreso a reserva de semillas" href="javascript:void(0);">
-                <img src="pics/haga-su-reserva.png" alt="Haga su reserva" />
+            <a id="boton-eleche" title="Ingreso a reserva de semillas" href="javascript:void(0);" style="text-decoration: none;">
+                <img src="pics/haga-su-reserva.png" alt="Haga su reserva" border="0" />
             </a>
         </div>
     </div>
@@ -229,7 +229,7 @@
             '   </tr>' +
             '   <tr>' +
             '       <td align="left">' +
-            '           <img src="pics/bot_enviar.jpg" alt="Enviar" title="Enviar" id="enviar-eleche" style="cursor:pointer;" />' +
+            '           <img src="pics/bot_ingresar.jpg" alt="Enviar" title="Enviar" id="enviar-eleche" style="cursor:pointer;" />' +
             '           <img src="pics/volver.png" border="0" style="cursor:pointer;" onclick="javascript:TINY.box.hide();" title="Volver">' +
             '       </td>' +
             '   </tr>' +
@@ -239,6 +239,8 @@
             TINY.box.show({
                 html: htmlPopup,
                 openjs: function(){
+
+                    $("#matricula-eleche").focus();
 
                     $("#enviar-eleche").click(function(){
 
