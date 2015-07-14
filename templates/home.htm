@@ -11,13 +11,9 @@
         </div>
     </div>
     <div id="eleche-bloque">
-        <div id="spot-title-eleche">
-            <img src="images/dingui-danga.jpg" />
-            <h2> Reserva de Semillas </h2>
-        </div>
         <div id="spot-eleche"> 
             <a id="boton-eleche" title="Ingreso a reserva de semillas" href="javascript:void(0);" style="text-decoration: none;">
-                <img src="pics/haga-su-reserva.png" alt="Haga su reserva" border="0" />
+                <img src="pics/reserva_13.png" alt="Haga su reserva" border="0" />
             </a>
         </div>
     </div>
@@ -193,8 +189,23 @@
 <script language="javascript" src="Scripts/tinybox.js"></script>
 {literal}
 <script type="text/javascript">
+    
     if(typeof swfobject !== "undefined"){
         swfobject.registerObject("FlashID");
+    }
+
+    function linkAlPortalLechero(){
+        $("#mensaje-popup-eleche").html('');
+
+        var matricula = $("#matricula-eleche").val();
+        var pin = $("#pin-eleche").val();
+
+        if($.trim(matricula) != '' && $.trim(pin) != ''){
+            location.href = "http://www.eleche.com.uy/pagelogredirect.aspx?1," + matricula + "," + pin + ",254,0";
+        }
+        else {
+            $("#mensaje-popup-eleche").html('Es requerido el ingreso de la matrícula y el PIN.');
+        }
     }
 
     $(document).ready(function(){
@@ -242,19 +253,11 @@
 
                     $("#matricula-eleche").focus();
 
-                    $("#enviar-eleche").click(function(){
+                    $("#enviar-eleche").click(linkAlPortalLechero);
 
-                        $("#mensaje-popup-eleche").html('');
-
-                        var matricula = $("#matricula-eleche").val();
-                        var pin = $("#pin-eleche").val();
-
-                        if($.trim(matricula) != '' && $.trim(pin) != ''){
-                            debugger;
-                            location.href = "http://www.eleche.com.uy/pagelogredirect.aspx?1," + matricula + "," + pin + ",254,0";
-                        }
-                        else {
-                            $("#mensaje-popup-eleche").html('Es requerido el ingreso de la matrícula y el PIN.');
+                    $(document).keypress(function(e) {
+                        if(e.which == 13) {
+                            linkAlPortalLechero();
                         }
                     });
                 }

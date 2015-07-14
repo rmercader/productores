@@ -572,6 +572,7 @@ select:focus {
 	border-bottom: 1px solid #CCC;
 	text-align: center;
 	float: left;
+	width: 50%;
 }
 
 #spot-title-eleche {width:100%; font-family:Arial, Helvetica, sans-serif; height:30px; }
