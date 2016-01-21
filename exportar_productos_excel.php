@@ -7,7 +7,7 @@ header('Cache-Control: no-cache, must-revalidate');
 header('Pragma: no-cache');
 
 ini_set('display_errors', 'on');
-ini_set("memory_limit", "128M");
+ini_set("memory_limit", "512M");
 include_once('./app.config.php');
 include_once(DIR_BASE.'funciones_auxiliares.php');
 include(DIR_LIB.'nyiLIB.php');
